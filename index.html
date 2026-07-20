@@ -1202,7 +1202,7 @@ body.menu-open{overflow:hidden}
   .step__cta{width:100%;max-width:520px;min-height:54px;margin-top:28px;padding:16px 20px}
   .step__photo{position:relative;left:auto;right:auto;bottom:auto;width:100%;max-width:680px;height:clamp(230px,60vh,290px);margin-top:32px}
   .step__stages{height:auto;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(44px,11vh,62px)}
-  .step__stage{padding-left:88px}
+  .step__stage{padding-left:100px}
   .step__stage h3{font-size:clamp(19px,5vh,22px)}
   .step__stage p{margin-top:9px;max-width:46ch;font-size:13.5px;line-height:1.65}
 }
@@ -1415,6 +1415,22 @@ body.menu-open{overflow:hidden}
 @media (prefers-reduced-motion:reduce){
   .step__svg .tick{opacity:.85}
 }
+
+/* ================= TRUST FACTS: real content fit ================= */
+.fact__val{line-height:1.45}
+@media (max-width:1100px) and (min-width:901px){
+  .fact__cat{overflow-wrap:normal;word-break:normal}
+}
+@media (max-width:680px){
+  .fact{gap:8px;padding-block:24px}
+  .fact__val{font-size:15px;line-height:1.6}
+  .fact__cat{font-size:10px;line-height:1.4}
+}
+@media (orientation:landscape) and (max-width:932px) and (max-height:500px){
+  .trust .fact{grid-template-columns:1fr;gap:6px;padding-block:18px}
+  .trust .fact__cat{font-size:9.5px;line-height:1.4}
+  .trust .fact__val{font-size:13.5px;line-height:1.5}
+}
 </style>
 
 <nav class="nav" id="nav">
@@ -1545,19 +1561,19 @@ body.menu-open{overflow:hidden}
       <div class="facts">
         <div class="fact">
           <span class="fact__cat">Практика</span>
-          <span class="fact__val">Профессиональный тренер Mriya Resort</span>
+          <span class="fact__val">Тренер с 2021 года. С 2023 года — Mriya Resort.</span>
         </div>
         <div class="fact">
-          <span class="fact__cat">Маршруты</span>
-          <span class="fact__val">Организатор и проводник походов по Крыму</span>
+          <span class="fact__cat">Образование</span>
+          <span class="fact__val">КФУ им. В. И. Вернадского, магистратура по направлению «Спорт».</span>
         </div>
         <div class="fact">
-          <span class="fact__cat">Принцип</span>
-          <span class="fact__val">Здоровье — это баланс тела, состояния и привычек</span>
+          <span class="fact__cat">Квалификация</span>
+          <span class="fact__val">Персональный тренер и инструктор-проводник по пешеходному туризму и треккингу.</span>
         </div>
         <div class="fact">
-          <span class="fact__cat">Метод</span>
-          <span class="fact__val">Стабильный прогресс без перегрузки и крайностей</span>
+          <span class="fact__cat">Походы</span>
+          <span class="fact__val">30+ самостоятельно организованных походов по 13 маршрутам. Группы до 33 человек.</span>
         </div>
       </div>
 
