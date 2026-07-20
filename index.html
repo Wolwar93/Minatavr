@@ -1329,6 +1329,75 @@ body.menu-open{overflow:hidden}
   .origin__lockup{font-size:clamp(28px,7vh,36px);top:calc(var(--nav-height) + env(safe-area-inset-top) + 10px)}
   .origin__text{margin-top:clamp(36px,8vh,52px)}
 }
+
+/* ================= STORIES MOBILE SLIDER (portrait ≤680 only) ================= */
+.stories__mobile-pager{display:none}
+
+@media (orientation:portrait) and (max-width:680px){
+  .stories__body{row-gap:20px}
+
+  /* track */
+  .stories__right{
+    display:flex;grid-template-columns:none;grid-template-rows:none;gap:14px;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    width:calc(100% + var(--pad));margin-right:calc(var(--pad) * -1);padding-right:var(--pad);
+  }
+  .stories__right::-webkit-scrollbar{display:none}
+
+  /* slides */
+  .story--side{
+    flex:0 0 100%;width:100%;
+    scroll-snap-align:start;scroll-snap-stop:always;
+    display:grid;grid-template-columns:1fr;grid-template-rows:auto auto;
+    background:var(--surface);overflow:hidden;
+  }
+  .story--side .shot{width:100%;min-height:0;height:clamp(270px,37svh,320px)}
+  .story--side .story__img{width:100%;height:100%;object-fit:cover}
+  .story--side:nth-child(1) .story__img{object-position:center 28%}
+  .story--side:nth-child(2) .story__img--denis{object-position:center 20%}
+  .story--side .shot::before{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:72px;z-index:3;pointer-events:none;
+    background:linear-gradient(180deg,rgba(21,25,26,0),rgba(21,25,26,.92));
+  }
+  .story--side .story__copy{align-self:stretch;padding:22px 22px 26px;background:var(--surface)}
+  .story--side .story__name{font-size:clamp(23px,6.4vw,26px)}
+  .story--side .story__cut{margin:16px 0}
+  .story--side .story__block + .story__block{margin-top:13px}
+  .story--side .story__k{font-size:10px}
+  .story--side .story__v{font-size:14px;line-height:1.58}
+  .story--side .story__quote{margin-top:20px;font-size:clamp(17px,4.7vw,19px);line-height:1.42}
+
+  /* pager */
+  .stories__mobile-pager{
+    display:flex;align-items:center;gap:14px;margin-top:18px;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    opacity:0;transform:translateY(6px);
+  }
+  .stories__mobile-count{display:inline-flex;gap:5px}
+  .stories__mobile-count b{color:var(--paper);font-weight:400}
+  .stories__mobile-progress{position:relative;display:block;flex:1;max-width:92px;height:1px;background:var(--line);overflow:hidden}
+  .stories__mobile-progress i{display:block;width:50%;height:100%;background:var(--signal);transform:translateX(0);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+  .stories__mobile-hint{margin-left:auto}
+  .stories.in .stories__mobile-pager{
+    opacity:1;transform:none;
+    transition:opacity .7s .92s cubic-bezier(.22,1,.36,1),transform .7s .92s cubic-bezier(.22,1,.36,1);
+  }
+
+  /* reveal: both slides together, short */
+  .stories.in .stories__right .story:nth-child(1),
+  .stories.in .stories__right .story:nth-child(2){transition-delay:.68s}
+  .stories.in .stories__right .story:nth-child(1) .story__copy,
+  .stories.in .stories__right .story:nth-child(2) .story__copy{transition-delay:.82s}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .stories__mobile-pager,
+  .stories__right .story,
+  .stories__right .story__copy{opacity:1;transform:none;transition:none}
+}
 </style>
 
 <nav class="nav" id="nav">
@@ -1570,8 +1639,8 @@ body.menu-open{overflow:hidden}
         </div>
       </article>
 
-      <div class="stories__right">
-        <article class="story story--side">
+      <div class="stories__right" tabindex="0" aria-label="Дополнительные истории людей. Горизонтальный список из двух карточек.">
+        <article class="story story--side" aria-label="История Марии, 1 из 2">
           <figure class="shot"><img class="story__img" src="stories-side-01.webp" alt=""></figure>
           <div class="story__copy">
             <h3 class="story__name">Мария, 24</h3>
@@ -1588,7 +1657,7 @@ body.menu-open{overflow:hidden}
           </div>
         </article>
 
-        <article class="story story--side">
+        <article class="story story--side" aria-label="История Дениса, 2 из 2">
           <figure class="shot"><img class="story__img story__img--denis" src="stories-side-02.webp" alt=""></figure>
           <div class="story__copy">
             <h3 class="story__name">Денис, 31</h3>
@@ -1604,6 +1673,11 @@ body.menu-open{overflow:hidden}
             <p class="story__quote">«Это стало частью жизни, без чего уже не могу.»</p>
           </div>
         </article>
+      </div>
+      <div class="stories__mobile-pager" aria-hidden="true">
+        <span class="stories__mobile-count"><b id="storiesCurrent">1</b><span>/</span><span>2</span></span>
+        <span class="stories__mobile-progress"><i id="storiesProgress"></i></span>
+        <span class="stories__mobile-hint">Свайп</span>
       </div>
     </div>
   </section>
@@ -1832,6 +1906,28 @@ document.querySelectorAll(".obs").forEach(el=>io.observe(el));
   if(mq.addEventListener) mq.addEventListener("change",onMq); else mq.addListener(onMq);
 })();
 
+
+
+// STORIES — mobile native slider indicator
+(function(){
+  const track=document.querySelector(".stories__right");
+  const cards=[...document.querySelectorAll(".stories__right .story--side")];
+  const current=document.getElementById("storiesCurrent");
+  const progress=document.getElementById("storiesProgress");
+  if(!track||cards.length<2||!current||!progress) return;
+  let raf=0;
+  function update(){
+    raf=0;
+    const gap=parseFloat(getComputedStyle(track).columnGap)||parseFloat(getComputedStyle(track).gap)||0;
+    const step=cards[0].offsetWidth+gap;
+    const index=Math.max(0,Math.min(cards.length-1,Math.round(track.scrollLeft/Math.max(1,step))));
+    current.textContent=String(index+1);
+    progress.style.transform=`translateX(${index*100}%)`;
+  }
+  track.addEventListener("scroll",()=>{ if(!raf) raf=requestAnimationFrame(update); },{passive:true});
+  window.addEventListener("resize",update);
+  update();
+})();
 
 // FAQ accordion: one open at a time; independent from the .in reveal
 (function(){
