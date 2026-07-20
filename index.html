@@ -1118,16 +1118,24 @@ body.menu-open{overflow:hidden}
   .faq.in .faq__row:nth-of-type(6){transition-delay:.90s}
 }
 
-/* ---- FAQ mobile landscape: back to two columns, desktop-like rows ---- */
-@media (max-height:500px) and (min-width:700px){
-  .faq{padding-block:clamp(44px,10vh,64px) clamp(44px,10vh,64px)}
-  .faq__left{grid-column:1 / span 4;display:block;margin-bottom:0}
-  .faq h2{font-size:clamp(34px,8vh,42px)}
-  .faq__photo{width:100%;max-width:none;height:clamp(160px,42vh,220px);margin-top:clamp(16px,4vh,26px)}
-  .faq__right{grid-column:6 / span 7;margin-top:0}
-  .faq__row{padding:18px 0}
-  .faq__row.is-open{padding:24px 0}
-  .faq__q p{font-size:clamp(16px,4.2vh,19px)}
+/* ---- FAQ mobile landscape: vertical mobile flow ---- */
+@media (orientation:landscape) and (max-width:932px) and (max-height:500px){
+  .faq{padding-block:clamp(52px,13vh,72px) clamp(56px,14vh,80px)}
+  .faq__left,.faq__right{grid-column:1 / -1}
+  .faq__left{display:block;margin-bottom:0}
+  .faq__right{margin-top:clamp(42px,10vh,58px)}
+  .faq h2{font-size:clamp(38px,10vh,48px);line-height:1.08}
+  .faq__note{max-width:52ch;font-size:14px;line-height:1.65}
+  .faq__photo{width:100%;max-width:620px;height:clamp(220px,58vh,280px);margin-top:28px}
+
+  .faq__row{grid-template-columns:1fr;column-gap:0;padding:22px 0}
+  .faq__row.is-open{padding:28px 0}
+  .faq__q{grid-column:1 / -1;grid-row:1;padding-left:36px;padding-right:40px}
+  .faq__row.is-open .faq__q{grid-column:1 / -1}
+  .faq__q p{font-size:clamp(18px,5vh,21px);line-height:1.35}
+  .faq__div{grid-column:1;grid-row:2;width:calc(100% - 36px);height:1px;justify-self:start;align-self:auto;margin:15px 0 15px 36px}
+  .faq__body{grid-column:1;grid-row:3}
+  .faq__a{padding-left:36px;padding-right:10px;max-width:none;font-size:14px;line-height:1.7}
 }
 
 /* ================= RESPONSIVE: STEP + FOOTER (≤1100px; desktop >1100px untouched) ================= */
@@ -1183,21 +1191,20 @@ body.menu-open{overflow:hidden}
   .step.in .step__stage:nth-child(4){transition-delay:1.02s}
 }
 
-/* ---- STEP mobile landscape: compact two columns ---- */
-@media (max-height:500px) and (min-width:700px){
-  .step{padding-block:clamp(44px,10vh,64px) clamp(44px,10vh,64px)}
-  .step__left{grid-column:1 / span 5;min-height:clamp(330px,88vh,420px);margin-bottom:0;align-self:stretch}
-  .step__route{grid-column:7 / span 6;min-height:clamp(330px,88vh,420px)}
-  .step h2{font-size:clamp(38px,9vh,48px)}
-  .step__note{font-size:13.5px;margin-top:16px;max-width:32ch}
-  .step__cta{margin-top:20px;padding:13px 16px;max-width:420px;min-height:0}
-  .step__cta-icon{width:26px;height:23px}
-  .step__cta .arr{width:32px}
-  .step__photo{position:absolute;left:calc(var(--pad) * -1);right:0;bottom:0;margin-top:0;max-width:none;height:clamp(150px,42vh,220px)}
-  .step__stages{gap:0;justify-content:space-between}
-  .step__stage{padding-left:110px}
-  .step__stage h3{font-size:clamp(16px,4.4vh,19px)}
-  .step__stage p{font-size:12.5px;margin-top:8px;max-width:30ch}
+/* ---- STEP mobile landscape: vertical mobile flow ---- */
+@media (orientation:landscape) and (max-width:932px) and (max-height:500px){
+  .step{padding-block:clamp(52px,13vh,72px) clamp(56px,14vh,80px)}
+  .step__left,.step__route{grid-column:1 / -1}
+  .step__left{min-height:0;align-self:auto;margin-bottom:clamp(52px,12vh,72px)}
+  .step__route{min-height:0}
+  .step h2{font-size:clamp(44px,11vh,56px);line-height:.96}
+  .step__note{margin-top:22px;max-width:48ch;font-size:14px;line-height:1.65}
+  .step__cta{width:100%;max-width:520px;min-height:54px;margin-top:28px;padding:16px 20px}
+  .step__photo{position:relative;left:auto;right:auto;bottom:auto;width:100%;max-width:680px;height:clamp(230px,60vh,290px);margin-top:32px}
+  .step__stages{height:auto;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(44px,11vh,62px)}
+  .step__stage{padding-left:88px}
+  .step__stage h3{font-size:clamp(19px,5vh,22px)}
+  .step__stage p{margin-top:9px;max-width:46ch;font-size:13.5px;line-height:1.65}
 }
 
 /* ---- FOOTER tablet 901–1100 ---- */
@@ -1397,6 +1404,16 @@ body.menu-open{overflow:hidden}
   .stories__mobile-pager,
   .stories__right .story,
   .stories__right .story__copy{opacity:1;transform:none;transition:none}
+}
+
+/* ================= STEP ROUTE MOBILE DRAWING ================= */
+@media (max-width:932px){
+  .step__svg .tick{opacity:0}
+  .step__svg .tick.on{opacity:.85;transition:opacity .35s ease}
+  .step__svg .node.on{opacity:1;transition:opacity .35s ease}
+}
+@media (prefers-reduced-motion:reduce){
+  .step__svg .tick{opacity:.85}
 }
 </style>
 
@@ -1969,7 +1986,7 @@ document.querySelectorAll(".obs").forEach(el=>io.observe(el));
     const vw=window.innerWidth;
     let xs,tickStart,tickLength;
     if(vw<=680){ xs=[10,30,20,34]; tickStart=8; tickLength=26; }
-    else if(vw<=900){ xs=[14,44,30,50]; tickStart=10; tickLength=30; }
+    else if(vw<=932){ xs=[14,44,30,50]; tickStart=10; tickLength=30; }
     else { xs=[16,54,40,62]; tickStart=10; tickLength=34; }
     const pts=stageEls.map((el,i)=>{
       const h3=el.querySelector("h3").getBoundingClientRect();
@@ -1992,7 +2009,7 @@ document.querySelectorAll(".obs").forEach(el=>io.observe(el));
       const c=document.createElementNS(SVGNS,"circle");
       c.setAttribute("class","node");c.setAttribute("cx",p.x);c.setAttribute("cy",p.y);c.setAttribute("r",5);
       svg.appendChild(c);
-      nodes.push({c,y:p.y,len:0});
+      nodes.push({c,tick,y:p.y,len:0});
     });
 
     rlen=routePath.getTotalLength();
@@ -2001,7 +2018,7 @@ document.querySelectorAll(".obs").forEach(el=>io.observe(el));
     routePath.style.setProperty("--len",rlen);
     if(rm){
       routePath.style.setProperty("--dash",0);
-      nodes.forEach(n=>n.c.classList.add("on"));
+      nodes.forEach(n=>{ n.c.classList.add("on"); n.tick.classList.add("on"); });
     }else{
       routePath.style.setProperty("--dash",rlen);
     }
@@ -2010,19 +2027,42 @@ document.querySelectorAll(".obs").forEach(el=>io.observe(el));
   const cl=(v,a,b)=>Math.min(b,Math.max(a,v));
   function draw(){
     if(rm||!routePath) return;
-    const r=sec.getBoundingClientRect();
-    const vh=window.innerHeight;
-    const p=cl((vh*0.72-r.top)/(r.height*0.72),0,1);
-
-    // draw the main route
-    const drawn=rlen*p;
+    const isMobileRoute=window.innerWidth<=932;
+    let drawn=0;
+    if(isMobileRoute){
+      // stage-linked: the line reaches each node when that node crosses the trigger line
+      const routeBox=route.getBoundingClientRect();
+      const isLandscape=window.matchMedia("(orientation: landscape) and (max-height: 500px)").matches;
+      const triggerY=window.innerHeight*(isLandscape?0.62:0.68);
+      const screenYs=nodes.map(node=>routeBox.top+node.y);
+      if(triggerY<=screenYs[0]){
+        drawn=0;
+      }else if(triggerY>=screenYs[screenYs.length-1]){
+        drawn=rlen;
+      }else{
+        for(let i=0;i<screenYs.length-1;i++){
+          const y1=screenYs[i], y2=screenYs[i+1];
+          if(triggerY>=y1 && triggerY<y2){
+            const local=cl((triggerY-y1)/Math.max(1,y2-y1),0,1);
+            drawn=nodes[i].len+(nodes[i+1].len-nodes[i].len)*local;
+            break;
+          }
+        }
+      }
+    }else{
+      const r=sec.getBoundingClientRect();
+      const vh=window.innerHeight;
+      const p=cl((vh*0.72-r.top)/(r.height*0.72),0,1);
+      drawn=rlen*p;
+    }
     routePath.style.setProperty("--dash",(rlen-drawn).toFixed(1));
 
-    // activate each node exactly when the drawn line reaches its corner
-    nodes.forEach(n=>{
-      if(drawn>=n.len-2) n.c.classList.add("on"); else n.c.classList.remove("on");
+    // node + its tick switch on exactly when the drawn line reaches the corner
+    nodes.forEach(node=>{
+      const active=drawn>=node.len-2;
+      node.c.classList.toggle("on",active);
+      node.tick.classList.toggle("on",active);
     });
-
   }
 
   build();
