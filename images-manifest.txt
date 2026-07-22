@@ -1,0 +1,18 @@
+MINATAVR — required local image assets (place next to index.html / strength.html)
+Names are case-sensitive on GitHub Pages. Use these EXACT lowercase names.
+
+Used by index.html AND strength.html:
+  directions-strength.webp
+  faq.webp
+  step-hero.webp
+  stories-main.webp
+  stories-side-01.webp
+  trust-nikita.webp
+
+Used by index.html only:
+  directions-crimea.webp
+  directions-wear.webp
+  minatavr-hero.webp
+  stories-side-02.webp
+
+Total: 10 files.

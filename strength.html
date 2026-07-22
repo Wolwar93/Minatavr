@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MINATAVR — тренировки, походы по Крыму и одежда</title>
+<title>Стать сильнее — MINATAVR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
-
 <style>
+
 :root{
   --ink:#0B0E0F;
   --surface:#15191A;
@@ -502,6 +502,7 @@ body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-weigh
 .faq.in .faq__row:nth-of-type(4){transition-delay:1.06s}
 .faq.in .faq__row:nth-of-type(5){transition-delay:1.23s}
 .faq.in .faq__row:nth-of-type(6){transition-delay:1.40s}
+.faq.in .faq__row:nth-of-type(7){transition-delay:1.57s}
 
 @media (max-width:1100px){
   .faq__left{grid-column:1 / span 12;margin-bottom:clamp(40px,6vh,72px)}
@@ -1119,6 +1120,7 @@ body.menu-open{overflow:hidden}
   .faq.in .faq__row:nth-of-type(4){transition-delay:.68s}
   .faq.in .faq__row:nth-of-type(5){transition-delay:.79s}
   .faq.in .faq__row:nth-of-type(6){transition-delay:.90s}
+  .faq.in .faq__row:nth-of-type(7){transition-delay:1.01s}
 }
 
 /* ---- FAQ mobile landscape: vertical mobile flow ---- */
@@ -1450,12 +1452,1307 @@ body.menu-open{overflow:hidden}
   }
   .trust__body{align-self:start}
 }
+
+
+/* ================= STRENGTH PAGE (desktop prototype) ================= */
+.fs-label{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--signal);display:inline-flex;align-items:center;gap:14px}
+.fs-label::before{content:"";width:26px;height:1px;background:var(--signal)}
+.fs-h2{font-family:var(--display);font-weight:300;text-transform:uppercase;color:var(--paper);font-size:clamp(44px,4.2vw,72px);line-height:1.02;letter-spacing:.005em;margin-top:22px}
+.fs-intro{margin-top:22px;font-size:16px;line-height:1.7;color:var(--muted);max-width:52ch}
+
+/* ---- HERO ---- */
+.fs-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.fs-hero__bg{position:absolute;inset:0;z-index:-2}
+.fs-hero__bg img{width:100%;height:100%;object-fit:cover;object-position:62% center;display:block}
+.fs-hero__grade{position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(11,14,15,.92) 0%,rgba(11,14,15,.72) 34%,rgba(11,14,15,.18) 66%,rgba(11,14,15,.4) 100%),
+  linear-gradient(180deg,rgba(11,14,15,.55) 0%,rgba(11,14,15,.08) 34%,rgba(11,14,15,.94) 100%)}
+.fs-hero .grid{width:100%;padding-bottom:clamp(56px,8vh,110px)}
+.fs-hero__copy{grid-column:1 / span 6}
+.fs-hero h1{font-family:var(--display);font-weight:300;text-transform:uppercase;color:var(--paper);
+  font-size:clamp(64px,7vw,120px);line-height:.92;letter-spacing:.004em;margin-top:26px}
+.fs-hero h1 span{display:block}
+.fs-hero__thought{margin-top:26px;max-width:42ch;font-size:16.5px;line-height:1.65;color:var(--muted)}
+.fs-hero__thought b{display:block;font-weight:400;color:var(--paper);margin-bottom:6px}
+.fs-hero__tags{margin-top:22px;display:flex;flex-direction:column;gap:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.fs-hero__cta{margin-top:34px}
+
+/* ---- FORMATS mosaic ---- */
+.fs-formats{padding-block:clamp(110px,15vh,190px) clamp(110px,15vh,190px)}
+.fs-formats__head{grid-column:1 / span 7;margin-bottom:clamp(48px,7vh,84px)}
+.fs-mosaic-wrap{grid-column:1 / -1;position:relative}
+.fs-mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:300px 300px 280px;gap:18px}
+.fs-tile{position:relative;overflow:hidden;border-radius:4px;background:var(--surface);cursor:pointer;border:0;padding:0;text-align:left;color:inherit;font:inherit;display:block}
+.fs-tile:focus-visible{outline:1px solid var(--signal);outline-offset:3px}
+.fs-tile--personal{grid-column:1 / span 7;grid-row:1 / span 2}
+.fs-tile--group{grid-column:8 / span 5;grid-row:1}
+.fs-tile--online{grid-column:8 / span 5;grid-row:2}
+.fs-tile--plan{grid-column:1 / span 4;grid-row:3}
+.fs-tile--food{grid-column:5 / span 8;grid-row:3}
+.fs-tile__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.02);transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.fs-tile--personal .fs-tile__img{object-position:60% 25%}
+.fs-tile--group .fs-tile__img{object-position:center 30%}
+.fs-tile--online .fs-tile__img{object-position:center 25%}
+.fs-tile--plan .fs-tile__img{object-position:30% 70%}
+.fs-tile--food .fs-tile__img{object-position:center 40%}
+.fs-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,15,.28) 0%,rgba(11,14,15,.55) 55%,rgba(11,14,15,.9) 100%);transition:background .5s ease}
+.fs-tile:hover .fs-tile__img{transform:scale(1.04)}
+.fs-tile:hover::after{background:linear-gradient(180deg,rgba(11,14,15,.18) 0%,rgba(11,14,15,.45) 55%,rgba(11,14,15,.86) 100%)}
+.fs-tile__body{position:absolute;left:26px;right:26px;bottom:24px;z-index:2}
+.fs-tile__name{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.06em;color:var(--paper);font-size:clamp(20px,1.8vw,30px);transition:color .4s ease}
+.fs-tile--personal .fs-tile__name{font-size:clamp(30px,2.6vw,44px)}
+.fs-tile__sub{margin-top:8px;font-size:13.5px;line-height:1.55;color:var(--muted);max-width:34ch}
+.fs-tile__more{margin-top:14px;display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);transition:color .4s ease}
+.fs-tile__more svg{width:34px;height:8px;color:var(--muted);transition:color .4s ease,transform .4s cubic-bezier(.22,1,.36,1)}
+.fs-tile:hover .fs-tile__more,.fs-tile:hover .fs-tile__more svg{color:var(--signal)}
+.fs-tile:hover .fs-tile__more svg{transform:translateX(5px)}
+
+/* ---- overlay ---- */
+.fs-overlay{position:absolute;inset:0;z-index:5;border-radius:4px;overflow:hidden;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .45s cubic-bezier(.22,1,.36,1),visibility 0s linear .45s}
+.fs-overlay.is-open{opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
+.fs-overlay__bg{position:absolute;inset:-24px;background-size:cover;background-position:center;filter:blur(14px) grayscale(.3);transform:scale(1.06)}
+.fs-overlay__shade{position:absolute;inset:0;background:
+  radial-gradient(90% 80% at 50% 46%,rgba(11,14,15,.86),rgba(11,14,15,.92)),
+  linear-gradient(180deg,rgba(11,14,15,.8),rgba(11,14,15,.9))}
+.fs-overlay__inner{position:relative;z-index:2;height:100%;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut);
+  padding:clamp(34px,4vh,56px) clamp(34px,3vw,60px);align-content:space-between}
+.fs-overlay__head{grid-column:1 / span 9}
+.fs-overlay__title{font-family:var(--display);font-weight:300;text-transform:uppercase;color:var(--paper);font-size:clamp(34px,3vw,54px);line-height:1}
+.fs-overlay__short{margin-top:12px;font-size:15px;line-height:1.6;color:var(--muted);max-width:52ch}
+.fs-overlay__cols{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut);align-items:start}
+.fs-overlay__col--who{grid-column:1 / span 4}
+.fs-overlay__col--incl{grid-column:5 / span 4}
+.fs-overlay__col--how{grid-column:9 / span 4}
+.fs-overlay__k{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--signal)}
+.fs-overlay__col p{margin-top:14px;font-size:14px;line-height:1.65;color:var(--muted);max-width:36ch}
+.fs-overlay__col ul{margin-top:14px;list-style:none}
+.fs-overlay__col li{position:relative;padding:9px 0 9px 22px;font-size:14px;line-height:1.5;color:var(--paper);border-top:1px solid var(--line)}
+.fs-overlay__col li:first-child{border-top:0;padding-top:0}
+.fs-overlay__col li::before{content:"";position:absolute;left:0;top:calc(50% - .5px);width:12px;height:1px;background:var(--signal);opacity:.8}
+.fs-overlay__col li:first-child::before{top:calc(50% - 5px)}
+.fs-overlay__foot{grid-column:1 / -1;display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+.fs-overlay__params{display:flex;gap:clamp(24px,3vw,54px)}
+.fs-param b{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.fs-param span{display:block;margin-top:8px;font-size:14px;color:var(--paper)}
+.fs-overlay__close{position:absolute;top:14px;right:14px;z-index:3;width:44px;height:44px;background:none;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.fs-overlay__close::before,.fs-overlay__close::after{content:"";position:absolute;width:20px;height:1px;background:var(--paper);transition:background .3s ease}
+.fs-overlay__close::before{transform:rotate(45deg)}
+.fs-overlay__close::after{transform:rotate(-45deg)}
+.fs-overlay__close:hover::before,.fs-overlay__close:hover::after{background:var(--signal)}
+.fs-overlay__close:focus-visible{outline:1px solid var(--signal);outline-offset:2px}
+/* cascade */
+.fs-overlay__head,.fs-overlay__cols>div,.fs-overlay__foot{opacity:0;transform:translateY(10px);
+  transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+.fs-overlay.is-open .fs-overlay__head{opacity:1;transform:none;transition-delay:.12s}
+.fs-overlay.is-open .fs-overlay__col--who{opacity:1;transform:none;transition-delay:.22s}
+.fs-overlay.is-open .fs-overlay__col--incl{opacity:1;transform:none;transition-delay:.30s}
+.fs-overlay.is-open .fs-overlay__col--how{opacity:1;transform:none;transition-delay:.38s}
+.fs-overlay.is-open .fs-overlay__foot{opacity:1;transform:none;transition-delay:.46s}
+
+/* ---- START POINT ---- */
+.fs-start{padding-block:clamp(100px,14vh,170px)}
+.fs-start__photo{grid-column:1 / span 5;position:relative;min-height:clamp(560px,74vh,780px);border-radius:2px;overflow:hidden}
+.fs-start__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 60%;filter:grayscale(1) contrast(1.05)}
+.fs-start__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,15,.14),rgba(11,14,15,.4))}
+.fs-start__body{grid-column:7 / span 6;align-self:center}
+.fs-startlist{margin-top:38px;list-style:none}
+.fs-startlist li{border-top:1px solid var(--line);padding:20px 0;opacity:0;transform:translateY(10px)}
+.fs-start.in .fs-startlist li{opacity:1;transform:none}
+.fs-startlist b{display:block;font-weight:400;font-size:17px;color:var(--paper)}
+.fs-startlist span{display:block;margin-top:6px;font-size:13.5px;line-height:1.55;color:var(--muted)}
+
+/* ---- APPROACH ---- */
+.fs-approach{background:var(--surface);padding-block:clamp(100px,14vh,170px)}
+.fs-approach__left{grid-column:1 / span 5}
+.fs-approach__right{grid-column:8 / span 5;position:relative}
+.fs-steps{position:relative;padding-left:44px}
+.fs-steps::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.fs-steps__fill{position:absolute;left:8px;top:10px;width:1px;height:0;background:var(--signal);opacity:.8;transition:height .25s linear}
+.fs-step{position:relative;padding:22px 0}
+.fs-step::before{content:"";position:absolute;left:-40px;top:calc(50% - 4px);width:9px;height:9px;border-radius:50%;
+  background:var(--ink);border:1px solid var(--muted);transition:background .4s ease,border-color .4s ease,box-shadow .4s ease}
+.fs-step.on::before{background:var(--signal);border-color:var(--signal);box-shadow:0 0 12px rgba(199,214,60,.4)}
+.fs-step b{display:block;font-weight:400;font-size:18px;color:var(--muted);transition:color .4s ease}
+.fs-step.on b{color:var(--paper)}
+.fs-step span{display:block;margin-top:6px;font-size:13.5px;line-height:1.55;color:var(--muted);opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .5s ease}
+.fs-step.on span{opacity:1;transform:none}
+
+/* ---- RESULT SYSTEM ---- */
+.fs-result{padding-block:clamp(110px,15vh,180px)}
+.fs-result__head{grid-column:1 / span 7;margin-bottom:clamp(56px,8vh,90px)}
+.fs-scheme{grid-column:2 / span 10;position:relative;display:grid;
+  grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;gap:clamp(34px,5vh,64px) clamp(40px,4vw,90px);
+  align-items:center;justify-items:center}
+.fs-node{position:relative;text-align:center;max-width:24ch;opacity:0;transform:translateY(8px)}
+.fs-node b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.1em;font-size:17px;color:var(--paper)}
+.fs-node span{display:block;margin-top:10px;font-size:12.5px;line-height:1.55;color:var(--muted)}
+.fs-node--center{grid-column:2;grid-row:2;padding:26px 44px;border:1px solid var(--signal)}
+.fs-node--center b{font-size:clamp(22px,2vw,30px);letter-spacing:.16em;color:var(--paper)}
+.fs-node--load{grid-column:2;grid-row:1}
+.fs-node--rec{grid-column:1;grid-row:2}
+.fs-node--food{grid-column:3;grid-row:2}
+.fs-node--reg{grid-column:2;grid-row:3}
+.fs-line{position:absolute;background:var(--line);opacity:0}
+.fs-line--top{left:50%;width:1px;top:calc(0% + 58px);bottom:calc(50% + 52px)}
+.fs-line--bottom{left:50%;width:1px;top:calc(50% + 52px);bottom:58px}
+.fs-line--left{top:50%;height:1px;left:calc(0% + 130px);right:calc(50% + 130px)}
+.fs-line--right{top:50%;height:1px;left:calc(50% + 130px);right:calc(0% + 130px)}
+
+/* ---- CHANGES ---- */
+.fs-changes{padding-block:clamp(100px,14vh,170px);background:var(--ink)}
+.fs-changes__head{grid-column:1 / span 6;margin-bottom:clamp(48px,7vh,80px)}
+.fs-changes__grid{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.fs-change{padding:34px 30px 38px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.fs-change:nth-child(3n){border-right:0}
+.fs-change b{display:block;font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(24px,2vw,34px);color:var(--paper)}
+.fs-change span{display:block;margin-top:10px;font-size:13.5px;line-height:1.55;color:var(--muted);max-width:30ch}
+.fs-changes__note{grid-column:1 / span 7;margin-top:30px;font-size:13px;line-height:1.6;color:var(--muted)}
+
+/* ---- EXPERIENCE ---- */
+.fs-exp{padding-block:clamp(100px,14vh,170px)}
+.fs-exp__photo{grid-column:1 / span 5;position:relative;min-height:clamp(520px,70vh,720px);border-radius:2px;overflow:hidden}
+.fs-exp__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.fs-exp__body{grid-column:7 / span 6;align-self:center}
+.fs-exp .fact{display:grid;grid-template-columns:1fr;gap:6px;padding:20px 0;border-top:1px solid var(--line)}
+.fs-exp .facts{margin-top:36px}
+.fs-exp__extra{margin-top:26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- HOW TO START ---- */
+.fs-how{padding-block:clamp(110px,15vh,180px)}
+.fs-how__head{grid-column:1 / span 7;margin-bottom:clamp(50px,7vh,84px)}
+.fs-rhythm{grid-column:1 / -1;position:relative;height:120px;min-width:0}
+.fs-rhythm svg{position:absolute;top:0;left:50%;transform:translateX(-50%);
+  display:block;width:100vw;max-width:none;height:120px;overflow:hidden}
+.fs-rhythm .base{stroke:var(--signal);stroke-width:1.2;fill:none;opacity:.9}
+.fs-how__stages{grid-column:1 / -1;display:flex;justify-content:space-between;margin-top:26px}
+.fs-stage{flex:0 0 auto;text-align:center;opacity:.25;transition:opacity .5s ease}
+.fs-stage.on{opacity:1}
+.fs-stage b{display:block;font-weight:400;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper)}
+.fs-how__cta{grid-column:1 / -1;margin-top:clamp(48px,7vh,72px);justify-self:start}
+
+/* ---- FINAL CTA ---- */
+.fs-final{position:relative;min-height:72vh;display:flex;align-items:center;background:var(--ink);overflow:hidden;isolation:isolate}
+.fs-final__photo{position:absolute;top:0;right:0;bottom:0;width:48%;z-index:-1}
+.fs-final__photo img{width:100%;height:100%;object-fit:cover;object-position:58% center;filter:grayscale(.3) contrast(1.02)}
+.fs-final__photo::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,var(--ink) 0%,rgba(11,14,15,.82) 26%,rgba(11,14,15,.22) 70%,rgba(11,14,15,.5) 100%),
+  linear-gradient(180deg,rgba(11,14,15,.45),rgba(11,14,15,.2) 40%,rgba(11,14,15,.6))}
+.fs-final__inner{grid-column:1 / span 6;text-align:left}
+.fs-final h2{font-family:var(--display);font-weight:300;text-transform:uppercase;color:var(--paper);font-size:clamp(40px,4vw,68px);line-height:1.06}
+.fs-final p{margin:26px 0 0;font-size:16px;line-height:1.7;color:var(--muted);max-width:46ch}
+.fs-final .btn{margin-top:0}
+
+/* min-width guard for the prototype */
+body{min-width:1200px}
+
+
+/* ================= STRENGTH v2 FIXES ================= */
+/* tiles reveal (section-driven) */
+.fs-formats .fs-tile{opacity:0;transform:translateY(16px)}
+
+/* changes: grid lines first, then text */
+.fs-changes__grid{position:relative;border-top-color:transparent}
+.fs-changes.in .fs-changes__grid{border-top-color:var(--line)}
+.fs-change{opacity:0;transform:translateY(14px);border-bottom-color:transparent;border-right-color:transparent}
+.fs-changes.in .fs-change:nth-child(3n){border-right-color:transparent}
+/* top row left→right, bottom row right→left */
+
+/* experience facts reveal */
+.fs-exp .fact{opacity:0;transform:translateY(8px)}
+
+/* rhythm: no infinite pulse */
+
+@media (prefers-reduced-motion:reduce){
+  .fs-formats .fs-tile,.fs-change,.fs-exp .fact{opacity:1;transform:none;transition:none}
+  .fs-changes__grid{border-top-color:var(--line)}
+  .fs-change{border-bottom-color:var(--line);border-right-color:var(--line)}
+  .fs-change:nth-child(3n){border-right-color:transparent}
+  .fs-stage{opacity:1}
+  .fs-rhythm .base{stroke-dashoffset:0 !important}
+}
+
+/* ================= STRENGTH v3 ================= */
+/* --- hero staged reveal (same character/timing as главная) --- */
+.fs-hero__thought b{margin-bottom:6px}
+.fs-hero__thought>span{display:block}
+.fs-tl{display:block;overflow:hidden}
+.fs-tl>span{display:block;transform:translateY(102%);transition:transform 1s cubic-bezier(.22,1,.36,1)}
+.fs-tl.in>span{transform:none}
+
+/* --- fullscreen modal --- */
+.fs-overlay{
+  position:fixed;inset:0;width:100%;height:100dvh;z-index:200;border-radius:0;overflow:hidden;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .45s cubic-bezier(.22,1,.36,1),visibility 0s linear .45s;
+}
+@supports not (height:100dvh){.fs-overlay{height:100vh}}
+.fs-overlay.is-open{opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
+.fs-overlay__bg{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(14px) grayscale(.3);transform:scale(1.06)}
+.fs-overlay__shade{position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(11,14,15,.94) 0%,rgba(11,14,15,.86) 55%,rgba(11,14,15,.78) 100%),
+  rgba(11,14,15,.76)}
+.fs-overlay__inner{
+  position:relative;z-index:2;width:100%;max-width:1760px;height:100%;margin-inline:auto;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut);
+  padding:max(72px, env(safe-area-inset-top)) max(var(--pad), env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(var(--pad), env(safe-area-inset-left));
+  align-content:space-between;
+}
+.fs-overlay__close{position:absolute;top:max(20px, env(safe-area-inset-top));right:max(20px, env(safe-area-inset-right));z-index:4}
+
+/* --- rhythm runner --- */
+.fs-rhythm .pulse-tail{fill:none;stroke:#F0FFA0;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;opacity:0}
+.fs-rhythm .pulse-tail--far{stroke-width:1.15;opacity:0}
+.fs-rhythm .pulse-tail--mid{stroke-width:1.35;opacity:0}
+.fs-rhythm .pulse-tail--near{stroke-width:1.55;opacity:0}
+.fs-rhythm .pulse-head{fill:#F0FFA0;opacity:0;pointer-events:none;
+  filter:drop-shadow(0 0 3px rgba(240,255,160,.9)) drop-shadow(0 0 6px rgba(240,255,160,.28))}
+.fs-rhythm.done .pulse-tail--far{opacity:.12}
+.fs-rhythm.done .pulse-tail--mid{opacity:.28}
+.fs-rhythm.done .pulse-tail--near{opacity:.68}
+.fs-rhythm.done .pulse-head{opacity:1}
+.fs-rhythm .base{opacity:.85}
+
+@media (prefers-reduced-motion:reduce){
+  .fs-hero .rv,.fs-hero .fs-tl>span{opacity:1;transform:none;transition:none}
+  .fs-rhythm .pulse-tail,.fs-rhythm .pulse-head{display:none}
+}
+
+/* ================= FINAL CTA REVEAL ================= */
+.fs-final__photo{opacity:0;transform:scale(1.025);transform-origin:center}
+.fs-final__line{display:block;overflow:hidden}
+.fs-final__line>span{display:block;transform:translateY(105%)}
+.fs-final p,.fs-final__action{opacity:0;transform:translateY(12px)}
+.fs-final__action{margin-top:40px}
+.fs-final.in .fs-final__photo{opacity:1;transform:scale(1);
+  transition:opacity 1.05s .08s cubic-bezier(.22,1,.36,1),transform 1.4s .08s cubic-bezier(.22,1,.36,1)}
+.fs-final.in .fs-final__line:nth-child(1)>span{transform:none;transition:transform .92s .20s cubic-bezier(.22,1,.36,1)}
+.fs-final.in .fs-final__line:nth-child(2)>span{transform:none;transition:transform .92s .36s cubic-bezier(.22,1,.36,1)}
+.fs-final.in p{opacity:1;transform:none;
+  transition:opacity .82s .58s cubic-bezier(.22,1,.36,1),transform .82s .58s cubic-bezier(.22,1,.36,1)}
+.fs-final.in .fs-final__action{opacity:1;transform:none;
+  transition:opacity .82s .76s cubic-bezier(.22,1,.36,1),transform .82s .76s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){
+  .fs-final__photo,.fs-final p,.fs-final__action{opacity:1;transform:none}
+  .fs-final__line>span{transform:none}
+}
+
+/* ================= STRENGTH v4.5 — SLOW REVEAL RHYTHM ================= */
+/* Форматы */
+.fs-formats.in .fs-tile{opacity:1;transform:none;
+  transition:opacity 1.1s cubic-bezier(.22,1,.36,1),transform 1.1s cubic-bezier(.22,1,.36,1)}
+.fs-formats.in .fs-tile:nth-child(1){transition-delay:.35s}
+.fs-formats.in .fs-tile:nth-child(2){transition-delay:.65s}
+.fs-formats.in .fs-tile:nth-child(3){transition-delay:.95s}
+.fs-formats.in .fs-tile:nth-child(4){transition-delay:1.25s}
+.fs-formats.in .fs-tile:nth-child(5){transition-delay:1.55s}
+
+/* Точка старта */
+.fs-startlist li{transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+.fs-start.in .fs-startlist li:nth-child(1){transition-delay:.45s}
+.fs-start.in .fs-startlist li:nth-child(2){transition-delay:.75s}
+.fs-start.in .fs-startlist li:nth-child(3){transition-delay:1.05s}
+.fs-start.in .fs-startlist li:nth-child(4){transition-delay:1.35s}
+.fs-start.in .fs-startlist li:nth-child(5){transition-delay:1.65s}
+.fs-start.in .fs-startlist li:nth-child(6){transition-delay:1.95s}
+
+/* Из чего складывается результат */
+.fs-result.in .fs-node--center{opacity:1;transform:none;
+  transition:opacity 1s .35s cubic-bezier(.22,1,.36,1),transform 1s .35s cubic-bezier(.22,1,.36,1)}
+.fs-result.in .fs-line{opacity:.8;
+  transition:opacity 1.1s .85s ease,transform 1.1s .85s cubic-bezier(.22,1,.36,1)}
+.fs-result.in .fs-node--rec,
+.fs-result.in .fs-node--load,
+.fs-result.in .fs-node--food,
+.fs-result.in .fs-node--reg{opacity:1;transform:none;
+  transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+.fs-result.in .fs-node--rec{transition-delay:1.35s}
+.fs-result.in .fs-node--load{transition-delay:1.70s}
+.fs-result.in .fs-node--food{transition-delay:2.05s}
+.fs-result.in .fs-node--reg{transition-delay:2.40s}
+
+/* Что может измениться */
+.fs-changes__grid{transition:border-top-color .9s ease}
+.fs-changes.in .fs-change{opacity:1;transform:none;
+  border-bottom-color:var(--line);border-right-color:var(--line);
+  transition:opacity 1.05s cubic-bezier(.22,1,.36,1),transform 1.05s cubic-bezier(.22,1,.36,1),border-color .9s ease}
+.fs-changes.in .fs-change:nth-child(3n){border-right-color:transparent}
+.fs-changes.in .fs-change:nth-child(1){transition-delay:.50s,.50s,.20s}
+.fs-changes.in .fs-change:nth-child(2){transition-delay:.82s,.82s,.20s}
+.fs-changes.in .fs-change:nth-child(3){transition-delay:1.14s,1.14s,.20s}
+.fs-changes.in .fs-change:nth-child(6){transition-delay:1.46s,1.46s,.20s}
+.fs-changes.in .fs-change:nth-child(5){transition-delay:1.78s,1.78s,.20s}
+.fs-changes.in .fs-change:nth-child(4){transition-delay:2.10s,2.10s,.20s}
+
+/* Опыт */
+.fs-exp.in .fact{opacity:1;transform:none;
+  transition:opacity 1.05s cubic-bezier(.22,1,.36,1),transform 1.05s cubic-bezier(.22,1,.36,1)}
+.fs-exp.in .fact:nth-child(1){transition-delay:.50s}
+.fs-exp.in .fact:nth-child(2){transition-delay:.85s}
+.fs-exp.in .fact:nth-child(3){transition-delay:1.20s}
+.fs-exp.in .fact:nth-child(4){transition-delay:1.55s}
+
+@media (prefers-reduced-motion:reduce){
+  .fs-formats .fs-tile,
+  .fs-startlist li,
+  .fs-result .fs-node,
+  .fs-result .fs-line,
+  .fs-change,
+  .fs-exp .fact{opacity:1;transform:none;transition:none}
+}
+
+/* ================= STRENGTH v5 — TABLET ADAPTIVE ================= */
+@media (max-width:1100px) and (min-width:681px){
+  body{min-width:0}
+  :root{--gut:20px}
+  .fs-h2{font-size:clamp(46px,6vw,62px)}
+  .fs-intro{font-size:15.5px;line-height:1.68}
+  .fs-formats,.fs-start,.fs-result,.fs-changes,.fs-exp,.fs-how{padding-block:clamp(82px,11vh,130px)}
+
+  /* modal stays fullscreen */
+  .fs-overlay__inner{
+    padding:max(58px,env(safe-area-inset-top)) max(36px,env(safe-area-inset-right)) max(36px,env(safe-area-inset-bottom)) max(36px,env(safe-area-inset-left));
+  }
+  .fs-overlay__head{grid-column:1 / -1}
+  .fs-overlay__title{font-size:clamp(38px,5vw,50px)}
+  .fs-overlay__cols{grid-column:1 / -1;gap:20px}
+  .fs-overlay__col--who{grid-column:1 / span 4}
+  .fs-overlay__col--incl{grid-column:5 / span 4}
+  .fs-overlay__col--how{grid-column:9 / span 4}
+  .fs-overlay__foot{grid-column:1 / -1}
+  .fs-overlay__params{gap:26px}
+  .fs-overlay__inner{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+}
+
+/* ---- tablet landscape 901–1100 ---- */
+@media (max-width:1100px) and (min-width:901px){
+  .fs-hero__copy{grid-column:1 / span 7}
+  .fs-hero h1{font-size:clamp(72px,8.2vw,88px)}
+  .fs-hero .grid{padding-bottom:clamp(48px,7vh,72px)}
+  .fs-hero__bg img{object-position:66% center}
+
+  .fs-formats__head{grid-column:1 / span 8;margin-bottom:56px}
+  .fs-mosaic{grid-template-rows:250px 250px 230px;gap:16px}
+  .fs-tile--personal{grid-column:1 / span 7}
+  .fs-tile--group,.fs-tile--online{grid-column:8 / span 5}
+  .fs-tile--plan{grid-column:1 / span 5}
+  .fs-tile--food{grid-column:6 / span 7}
+  .fs-tile__body{left:22px;right:22px;bottom:20px}
+
+  .fs-start__photo{grid-column:1 / span 5;min-height:540px}
+  .fs-start__body{grid-column:7 / span 6}
+  .fs-startlist{margin-top:30px}
+  .fs-startlist li{padding:17px 0}
+
+  .fs-approach{padding-block:clamp(82px,11vh,130px)}
+  .fs-approach__left{grid-column:1 / span 5}
+  .fs-approach__right{grid-column:7 / span 6}
+
+  .fs-result__head{grid-column:1 / span 8}
+  .fs-scheme{grid-column:1 / -1;column-gap:54px}
+  .fs-line--left{left:110px;right:calc(50% + 110px)}
+  .fs-line--right{left:calc(50% + 110px);right:110px}
+
+  .fs-exp__photo{grid-column:1 / span 5;min-height:540px}
+  .fs-exp__body{grid-column:7 / span 6}
+
+  .fs-final__inner{grid-column:1 / span 7}
+  .fs-final__photo{width:52%}
+  .fs-final h2{font-size:clamp(46px,5.2vw,58px)}
+}
+
+/* ---- tablet portrait 681–900 ---- */
+@media (max-width:900px) and (min-width:681px){
+  .fs-hero{min-height:100svh}
+  .fs-hero__copy{grid-column:1 / span 10}
+  .fs-hero h1{font-size:clamp(66px,10vw,80px)}
+  .fs-hero__thought{max-width:38ch}
+  .fs-hero__bg img{object-position:68% center}
+  .fs-hero__grade{
+    background:
+      linear-gradient(90deg,rgba(11,14,15,.94) 0%,rgba(11,14,15,.76) 42%,rgba(11,14,15,.24) 78%,rgba(11,14,15,.44) 100%),
+      linear-gradient(180deg,rgba(11,14,15,.58) 0%,rgba(11,14,15,.08) 34%,rgba(11,14,15,.94) 100%);
+  }
+
+  .fs-formats__head{grid-column:1 / -1;margin-bottom:50px}
+  .fs-mosaic{grid-template-columns:repeat(12,1fr);grid-template-rows:360px 250px 250px;gap:14px}
+  .fs-tile--personal{grid-column:1 / -1;grid-row:1}
+  .fs-tile--group{grid-column:1 / span 6;grid-row:2}
+  .fs-tile--online{grid-column:7 / span 6;grid-row:2}
+  .fs-tile--plan{grid-column:1 / span 6;grid-row:3}
+  .fs-tile--food{grid-column:7 / span 6;grid-row:3}
+  .fs-tile__body{left:20px;right:20px;bottom:20px}
+  .fs-tile__name,.fs-tile--personal .fs-tile__name{font-size:clamp(24px,4vw,34px)}
+  .fs-tile__sub{font-size:13px}
+
+  .fs-start__photo{grid-column:1 / -1;min-height:0;height:460px}
+  .fs-start__body{grid-column:1 / -1;margin-top:50px}
+  .fs-startlist{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;margin-top:34px}
+  .fs-startlist li{padding:18px 0}
+
+  .fs-approach__left{grid-column:1 / -1;max-width:600px}
+  .fs-approach__right{grid-column:1 / -1;margin-top:48px}
+  .fs-steps{max-width:620px}
+
+  .fs-result__head{grid-column:1 / -1}
+  .fs-scheme{grid-column:1 / -1;grid-template-columns:1fr auto 1fr;gap:44px 24px}
+  .fs-node{max-width:18ch}
+  .fs-node--center{padding:22px 30px}
+  .fs-line--left{left:82px;right:calc(50% + 88px)}
+  .fs-line--right{left:calc(50% + 88px);right:82px}
+
+  .fs-changes__head{grid-column:1 / -1}
+  .fs-changes__grid{grid-template-columns:repeat(2,1fr)}
+  .fs-change{padding:30px 24px 34px}
+  .fs-change:nth-child(3n){border-right:1px solid var(--line)}
+  .fs-change:nth-child(2n){border-right:0}
+  .fs-changes__note{grid-column:1 / -1}
+
+  .fs-exp__photo{grid-column:1 / -1;min-height:0;height:500px}
+  .fs-exp__body{grid-column:1 / -1;margin-top:50px}
+  .fs-exp .facts{margin-top:32px}
+  .fs-exp .fact{grid-template-columns:150px 1fr;gap:22px}
+
+  .fs-how__head{grid-column:1 / -1}
+  .fs-stage b{font-size:11.5px;letter-spacing:.16em}
+  .fs-how__stages{margin-top:22px}
+
+  .fs-final{min-height:68vh}
+  .fs-final__photo{width:100%}
+  .fs-final__photo::after{
+    background:
+      linear-gradient(90deg,rgba(11,14,15,.96) 0%,rgba(11,14,15,.82) 48%,rgba(11,14,15,.28) 100%),
+      linear-gradient(180deg,rgba(11,14,15,.4),rgba(11,14,15,.28) 45%,rgba(11,14,15,.74));
+  }
+  .fs-final__inner{grid-column:1 / span 9}
+  .fs-final h2{font-size:clamp(46px,7vw,58px)}
+
+  /* tablet portrait 2 × 3 — visual reading order 1 → 6 */
+  .fs-changes.in .fs-change:nth-child(1){transition-delay:.50s,.50s,.20s}
+  .fs-changes.in .fs-change:nth-child(2){transition-delay:.82s,.82s,.20s}
+  .fs-changes.in .fs-change:nth-child(3){transition-delay:1.14s,1.14s,.20s}
+  .fs-changes.in .fs-change:nth-child(4){transition-delay:1.46s,1.46s,.20s}
+  .fs-changes.in .fs-change:nth-child(5){transition-delay:1.78s,1.78s,.20s}
+  .fs-changes.in .fs-change:nth-child(6){transition-delay:2.10s,2.10s,.20s}
+}
+@media (max-width:900px) and (min-width:681px){
+  .fs-changes.in .fs-change:nth-child(3n){border-right-color:var(--line)}
+  .fs-changes.in .fs-change:nth-child(2n){border-right-color:transparent}
+}
+
+/* ================= STRENGTH v6 — MOBILE PORTRAIT ================= */
+@media (orientation:portrait) and (max-width:680px){
+  body{min-width:0}
+  :root{--pad:20px;--gut:14px}
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+  /* ---- HERO ---- */
+  .fs-hero{min-height:100svh;align-items:flex-end}
+  .fs-hero .grid{width:100%;
+    padding-top:calc(var(--nav-height) + env(safe-area-inset-top) + 28px);
+    padding-bottom:max(34px,env(safe-area-inset-bottom))}
+  .fs-hero__copy{grid-column:1 / -1}
+  .fs-hero h1{font-size:clamp(52px,15vw,66px);line-height:.92}
+  .fs-hero__thought{margin-top:20px;max-width:34ch;font-size:14.5px;line-height:1.6}
+  .fs-hero__tags{margin-top:18px;gap:7px;font-size:9.5px;line-height:1.45;letter-spacing:.18em}
+  .fs-hero__cta{margin-top:26px}
+  .fs-hero__cta .btn{width:100%;min-height:50px;justify-content:center}
+  .fs-hero__bg img{object-position:70% center}
+  .fs-hero__grade{background:
+    linear-gradient(90deg,rgba(11,14,15,.95) 0%,rgba(11,14,15,.78) 44%,rgba(11,14,15,.28) 80%,rgba(11,14,15,.46) 100%),
+    linear-gradient(180deg,rgba(11,14,15,.6) 0%,rgba(11,14,15,.1) 32%,rgba(11,14,15,.95) 100%)}
+
+  /* ---- shared heads ---- */
+  .fs-h2{font-size:clamp(40px,11.5vw,52px);line-height:1.02;margin-top:18px}
+  .fs-intro{margin-top:18px;font-size:14.5px;line-height:1.68}
+  .fs-label{font-size:10px;letter-spacing:.22em}
+
+  /* ---- FORMATS ---- */
+  .fs-formats{padding-block:82px 96px}
+  .fs-formats__head{grid-column:1 / -1;margin-bottom:38px}
+  .fs-mosaic-wrap{grid-column:1 / -1}
+  .fs-mosaic{display:grid;grid-template-columns:1fr;grid-template-rows:none;gap:14px}
+  .fs-tile--personal,.fs-tile--group,.fs-tile--online,.fs-tile--plan,.fs-tile--food{grid-column:1;grid-row:auto}
+  .fs-tile--personal{height:360px}
+  .fs-tile--group{height:260px}
+  .fs-tile--online{height:260px}
+  .fs-tile--plan{height:240px}
+  .fs-tile--food{height:280px}
+  .fs-tile__body{left:20px;right:20px;bottom:20px}
+  .fs-tile__name,.fs-tile--personal .fs-tile__name{font-size:clamp(26px,8vw,34px)}
+  .fs-tile__sub{font-size:13px;line-height:1.55}
+  .fs-tile__more{margin-top:12px}
+
+  /* ---- MODAL ---- */
+  .fs-overlay__inner{display:block;height:100%;overflow-y:auto;
+    padding:max(72px,env(safe-area-inset-top)) 20px max(28px,env(safe-area-inset-bottom))}
+  .fs-overlay__head,.fs-overlay__cols,.fs-overlay__foot{display:block;width:100%}
+  .fs-overlay__title{font-size:clamp(34px,10vw,44px);line-height:1.05;padding-right:38px}
+  .fs-overlay__short{font-size:14px;line-height:1.6}
+  .fs-overlay__cols{margin-top:42px}
+  .fs-overlay__col{margin-top:32px}
+  .fs-overlay__col:first-child{margin-top:0}
+  .fs-overlay__foot{margin-top:44px}
+  .fs-overlay__params{display:grid;grid-template-columns:1fr 1fr;gap:24px 18px}
+  .fs-overlay__foot .btn{width:100%;min-height:50px;justify-content:center;margin-top:32px}
+
+  /* ---- START POINT ---- */
+  .fs-start{padding-block:82px 94px}
+  .fs-start__photo{grid-column:1 / -1;min-height:0;height:clamp(320px,48svh,410px)}
+  .fs-start__body{grid-column:1 / -1;margin-top:40px}
+  .fs-startlist{display:block;margin-top:30px}
+  .fs-startlist li{padding:18px 0}
+  .fs-startlist b{font-size:16px}
+  .fs-startlist span{font-size:13.25px;line-height:1.6}
+
+  /* ---- APPROACH ---- */
+  .fs-approach{padding-block:82px 94px}
+  .fs-approach__left,.fs-approach__right{grid-column:1 / -1}
+  .fs-approach__right{margin-top:40px}
+  .fs-steps{padding-left:38px;max-width:none}
+  .fs-steps::before,.fs-steps__fill{left:6px}
+  .fs-step{padding:19px 0}
+  .fs-step::before{left:-36px}
+  .fs-step b{font-size:16.5px}
+  .fs-step span{font-size:13.25px;line-height:1.6}
+
+  /* ---- RESULT SYSTEM ---- */
+  .fs-result{padding-block:86px 100px}
+  .fs-result__head{grid-column:1 / -1;margin-bottom:44px}
+  .fs-scheme{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:16px;width:100%}
+  .fs-line{display:none}
+  .fs-node{width:100%;max-width:none;min-height:132px;padding:22px 16px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;border-top:1px solid var(--line)}
+  .fs-node--center{grid-column:1 / -1;grid-row:1;min-height:104px;padding:22px;border:1px solid var(--signal)}
+  .fs-node--rec{grid-column:1;grid-row:2}
+  .fs-node--load{grid-column:2;grid-row:2}
+  .fs-node--food{grid-column:1;grid-row:3}
+  .fs-node--reg{grid-column:2;grid-row:3}
+  .fs-node b{font-size:15px}
+  .fs-node span{margin-top:8px;font-size:12px;line-height:1.5}
+
+  /* ---- CHANGES ---- */
+  .fs-changes{padding-block:82px 94px}
+  .fs-changes__head{grid-column:1 / -1;margin-bottom:40px}
+  .fs-changes__grid{grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fs-change{padding:24px 16px 28px;min-height:150px}
+  .fs-change b{font-size:clamp(22px,6.5vw,27px)}
+  .fs-change span{font-size:12.5px;line-height:1.55}
+  .fs-changes__note{grid-column:1 / -1;font-size:12.5px}
+  /* mobile 2 × 3 grid borders */
+  .fs-changes .fs-change:nth-child(odd){border-right-width:1px;border-right-style:solid;border-right-color:transparent}
+  .fs-changes .fs-change:nth-child(even){border-right:0}
+  .fs-changes.in .fs-change:nth-child(odd){border-right-color:var(--line)}
+
+  /* ---- EXPERIENCE ---- */
+  .fs-exp{padding-block:82px 96px}
+  .fs-exp__photo{grid-column:1 / -1;min-height:0;height:clamp(380px,56svh,500px)}
+  .fs-exp__body{grid-column:1 / -1;margin-top:40px}
+  .fs-exp .facts{margin-top:30px}
+  .fs-exp .fact{grid-template-columns:1fr;gap:7px;padding:20px 0}
+  .fs-exp .fact__cat{font-size:9.75px}
+  .fs-exp .fact__val{font-size:14.5px;line-height:1.55}
+  .fs-exp__extra{font-size:10.5px;line-height:1.65}
+
+  /* ---- HOW TO START ---- */
+  .fs-how{padding-block:86px 96px}
+  .fs-how__head{grid-column:1 / -1;margin-bottom:40px}
+  .fs-rhythm{grid-column:1 / -1;height:110px}
+  .fs-rhythm svg{width:100vw;height:110px}
+  .fs-how__stages{grid-column:1 / -1;margin-top:20px;gap:4px;align-items:flex-start}
+  .fs-stage{flex:1 1 0;min-width:0}
+  .fs-stage b{font-size:9px;line-height:1.35;letter-spacing:.11em}
+  .fs-how__cta{grid-column:1 / -1;width:100%;margin-top:42px}
+  .fs-how__cta .btn{width:100%;min-height:50px;justify-content:center}
+
+  /* ---- FINAL CTA ---- */
+  .fs-final{min-height:72svh;align-items:center}
+  .fs-final__photo{width:100%}
+  .fs-final__photo::after{background:
+    linear-gradient(90deg,rgba(11,14,15,.96) 0%,rgba(11,14,15,.82) 56%,rgba(11,14,15,.34) 100%),
+    linear-gradient(180deg,rgba(11,14,15,.48),rgba(11,14,15,.28) 42%,rgba(11,14,15,.82))}
+  .fs-final__inner{grid-column:1 / -1}
+  .fs-final h2{font-size:clamp(38px,10.5vw,48px);line-height:1.08}
+  .fs-final p{margin-top:22px;font-size:14.5px;line-height:1.68}
+  .fs-final__action{margin-top:32px}
+  .fs-final__action .btn{width:100%;min-height:50px;justify-content:center}
+
+  /* ---- v6.1 point fixes ---- */
+  .fs-scheme{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fs-node{min-width:0}
+  .fs-result .fs-h2{font-size:clamp(36px,9.8vw,42px)}
+
+  .fs-changes__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fs-change{min-width:0}
+  .fs-change:nth-child(2) b,
+  .fs-change:nth-child(6) b{font-size:clamp(18px,4.8vw,21px);letter-spacing:.035em}
+
+  .fs-stage:first-child b{font-size:8px;letter-spacing:.07em}
+
+  .fs-how{overflow-x:clip}
+
+  /* mobile changes reveal: visual reading order 1 → 6 */
+  .fs-changes.in .fs-change:nth-child(1){transition-delay:.50s,.50s,.20s}
+  .fs-changes.in .fs-change:nth-child(2){transition-delay:.82s,.82s,.20s}
+  .fs-changes.in .fs-change:nth-child(3){transition-delay:1.14s,1.14s,.20s}
+  .fs-changes.in .fs-change:nth-child(4){transition-delay:1.46s,1.46s,.20s}
+  .fs-changes.in .fs-change:nth-child(5){transition-delay:1.78s,1.78s,.20s}
+  .fs-changes.in .fs-change:nth-child(6){transition-delay:2.10s,2.10s,.20s}
+}
+/* ================= STRENGTH v7.1 — MOBILE LANDSCAPE PART 1 ================= */
+/* Диапазон: телефон в landscape (844×390 и 932×430).
+   Правила размещены последними, чтобы переопределить tablet-landscape (901–1100)
+   и tablet-portrait (681–900) на этих вьюпортах. Portrait ≤680 и desktop не затронуты. */
+@media (orientation:landscape) and (max-width:932px) and (max-height:500px){
+
+  /* ---- общая система ---- */
+  body{min-width:0}
+  :root{
+    --pad:28px;
+    --gut:14px;
+    --nav-height:60px;
+  }
+  .fs-h2{
+    font-size:clamp(38px,10vh,48px);
+    line-height:1.02;
+    margin-top:14px;
+  }
+  .fs-intro{
+    margin-top:14px;
+    font-size:13.5px;
+    line-height:1.62;
+  }
+  .fs-label{
+    font-size:9px;
+    letter-spacing:.2em;
+  }
+  .fs-formats,
+  .fs-start,
+  .fs-approach{
+    padding-block:clamp(54px,13vh,72px);
+  }
+
+  /* ---- Navbar + burger ---- */
+  .nav{
+    height:calc(var(--nav-height) + env(safe-area-inset-top));
+    min-height:calc(var(--nav-height) + env(safe-area-inset-top));
+    padding:
+      env(safe-area-inset-top)
+      max(var(--pad),env(safe-area-inset-right))
+      0
+      max(var(--pad),env(safe-area-inset-left));
+  }
+  .brand__logo{
+    height:24px;
+  }
+  .nav .right{
+    display:none;
+  }
+  .nav__burger{
+    display:flex;
+  }
+  .mobile-menu{
+    display:block;
+    top:calc(var(--nav-height) + env(safe-area-inset-top));
+    padding:
+      22px
+      max(var(--pad),env(safe-area-inset-right))
+      26px
+      max(var(--pad),env(safe-area-inset-left));
+  }
+  .mobile-menu__link{
+    padding:10px 0;
+    font-size:15px;
+  }
+  .mobile-menu__cta{
+    margin-top:12px;
+    padding-top:16px;
+    font-size:12px;
+  }
+
+  /* ---- Hero: один экран, горизонтальная композиция ---- */
+  .fs-hero{
+    min-height:100svh;
+    align-items:stretch;
+  }
+  .fs-hero .grid{
+    width:100%;
+    min-height:100svh;
+    align-items:center;
+    padding-top:calc(var(--nav-height) + env(safe-area-inset-top) + 12px);
+    padding-bottom:max(14px,env(safe-area-inset-bottom));
+  }
+  .fs-hero__copy{
+    grid-column:1 / span 7;
+    align-self:center;
+    max-width:590px;
+  }
+  .fs-hero h1{
+    margin-top:12px;
+    font-size:clamp(42px,11vh,50px);
+    line-height:.9;
+  }
+  .fs-hero__thought{
+    margin-top:12px;
+    max-width:39ch;
+    font-size:12.75px;
+    line-height:1.48;
+  }
+  .fs-hero__thought b{
+    margin-bottom:3px;
+  }
+  .fs-hero__tags{
+    margin-top:10px;
+    gap:4px;
+    font-size:8.5px;
+    line-height:1.35;
+  }
+  .fs-hero__cta{
+    margin-top:14px;
+  }
+  .fs-hero__cta .btn{
+    width:auto;
+    min-height:42px;
+    padding:11px 18px;
+    font-size:10.5px;
+  }
+  .fs-hero__bg img{
+    object-position:70% 16%;
+  }
+
+  /* ---- Форматы: асимметричная мозаика (не вертикальная колонка) ---- */
+  .fs-formats__head{
+    grid-column:1 / span 8;
+    margin-bottom:34px;
+  }
+  .fs-mosaic{
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    grid-template-rows:220px 220px 190px;
+    gap:12px;
+  }
+  .fs-tile--personal{
+    grid-column:1 / span 7;
+    grid-row:1 / span 2;
+    height:auto;
+  }
+  .fs-tile--group{
+    grid-column:8 / span 5;
+    grid-row:1;
+    height:auto;
+  }
+  .fs-tile--online{
+    grid-column:8 / span 5;
+    grid-row:2;
+    height:auto;
+  }
+  .fs-tile--plan{
+    grid-column:1 / span 5;
+    grid-row:3;
+    height:auto;
+  }
+  .fs-tile--food{
+    grid-column:6 / span 7;
+    grid-row:3;
+    height:auto;
+  }
+  .fs-tile__body{
+    left:18px;
+    right:18px;
+    bottom:16px;
+  }
+  .fs-tile__name,
+  .fs-tile--personal .fs-tile__name{
+    font-size:clamp(21px,6vh,29px);
+  }
+  .fs-tile__sub{
+    margin-top:5px;
+    font-size:11.5px;
+    line-height:1.45;
+  }
+  .fs-tile__more{
+    margin-top:8px;
+    font-size:9px;
+  }
+
+  /* ---- Modal: fullscreen grid + внутренний скролл (переопределяет portrait block) ---- */
+  .fs-overlay__inner{
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    height:100%;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    align-content:start;
+    row-gap:22px;
+    padding:
+      max(54px,env(safe-area-inset-top))
+      max(28px,env(safe-area-inset-right))
+      max(24px,env(safe-area-inset-bottom))
+      max(28px,env(safe-area-inset-left));
+  }
+  .fs-overlay__head{
+    display:block;
+    grid-column:1 / span 9;
+    width:auto;
+  }
+  .fs-overlay__title{
+    font-size:clamp(30px,8vh,38px);
+    padding-right:44px;
+  }
+  .fs-overlay__short{
+    margin-top:8px;
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .fs-overlay__cols{
+    display:grid;
+    grid-column:1 / -1;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    width:auto;
+    margin-top:4px;
+    gap:16px;
+  }
+  .fs-overlay__col{
+    margin-top:0;
+  }
+  .fs-overlay__col--who{
+    grid-column:1 / span 4;
+  }
+  .fs-overlay__col--incl{
+    grid-column:5 / span 4;
+  }
+  .fs-overlay__col--how{
+    grid-column:9 / span 4;
+  }
+  .fs-overlay__col p,
+  .fs-overlay__col li{
+    font-size:12px;
+    line-height:1.5;
+  }
+  .fs-overlay__col li{
+    padding-block:7px;
+  }
+  .fs-overlay__foot{
+    display:flex;
+    grid-column:1 / -1;
+    width:auto;
+    margin-top:4px;
+    padding-bottom:8px;
+    align-items:flex-end;
+    justify-content:space-between;
+  }
+  .fs-overlay__params{
+    display:flex;
+    gap:22px;
+  }
+  .fs-overlay__foot .btn{
+    width:auto;
+    min-height:42px;
+    margin-top:0;
+    justify-content:flex-start;
+  }
+  .fs-overlay__close{
+    top:max(8px,env(safe-area-inset-top));
+    right:max(16px,env(safe-area-inset-right));
+  }
+
+  /* ---- Точка старта: две колонки, sticky-фото ---- */
+  .fs-start{
+    align-items:start;
+  }
+  .fs-start__photo{
+    grid-column:1 / span 5;
+    position:sticky;
+    top:calc(var(--nav-height) + env(safe-area-inset-top) + 14px);
+    height:calc(100svh - var(--nav-height) - env(safe-area-inset-top) - 28px);
+    min-height:280px;
+    max-height:360px;
+  }
+  .fs-start__body{
+    grid-column:7 / span 6;
+    margin-top:0;
+    align-self:start;
+  }
+  .fs-startlist{
+    display:block;
+    margin-top:22px;
+  }
+  .fs-startlist li{
+    padding:13px 0;
+  }
+  .fs-startlist b{
+    font-size:14.5px;
+  }
+  .fs-startlist span{
+    margin-top:4px;
+    font-size:12px;
+    line-height:1.5;
+  }
+
+  /* ---- Подход: текст слева, линия с точками справа ---- */
+  .fs-approach__left{
+    grid-column:1 / span 5;
+    max-width:none;
+  }
+  .fs-approach__right{
+    grid-column:7 / span 6;
+    margin-top:0;
+  }
+  .fs-steps{
+    max-width:none;
+    padding-left:38px;
+  }
+  .fs-step{
+    padding:13px 0;
+  }
+  .fs-step b{
+    font-size:14.5px;
+  }
+  .fs-step span{
+    margin-top:4px;
+    font-size:11.75px;
+    line-height:1.48;
+  }
+}
+
+/* ================= STRENGTH v7.2 — MOBILE LANDSCAPE PART 2 ================= */
+/* Завершение landscape (844×390 / 932×430). Размещён последним, поэтому
+   переопределяет tablet-landscape (901–1100) и tablet-portrait (681–900).
+   Portrait ≤680 и desktop не затрагиваются. !important не используется.
+   FAQ landscape уже задан ранее и корректен — здесь не дублируется. */
+@media (orientation:landscape) and (max-width:932px) and (max-height:500px){
+
+  /* ---- «Из чего складывается результат»: заголовок слева | схема справа ---- */
+  .fs-result{
+    padding-block:clamp(54px,13vh,72px);
+    align-items:center;
+  }
+  .fs-result__head{
+    grid-column:1 / span 4;
+    margin-bottom:0;
+    align-self:center;
+  }
+  .fs-result__head .fs-h2{
+    font-size:clamp(34px,8.8vh,44px);
+  }
+  .fs-scheme{
+    grid-column:5 / -1;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    grid-template-rows:auto auto auto;
+    gap:26px 18px;
+    width:100%;
+    align-self:center;
+    align-items:center;
+    justify-items:center;
+  }
+  .fs-node{
+    width:auto;
+    min-width:0;
+    min-height:0;
+    max-width:16ch;
+    padding:0;
+    border-top:0;
+  }
+  .fs-node--center{
+    grid-column:2;
+    grid-row:2;
+    min-height:0;
+    padding:16px 22px;
+    border:1px solid var(--signal);
+  }
+  .fs-node--load{
+    grid-column:2;
+    grid-row:1;
+  }
+  .fs-node--rec{
+    grid-column:1;
+    grid-row:2;
+  }
+  .fs-node--food{
+    grid-column:3;
+    grid-row:2;
+  }
+  .fs-node--reg{
+    grid-column:2;
+    grid-row:3;
+  }
+  .fs-node b{
+    font-size:13px;
+  }
+  .fs-node--center b{
+    font-size:18px;
+  }
+  .fs-node span{
+    margin-top:5px;
+    font-size:10.5px;
+    line-height:1.42;
+  }
+  .fs-line{
+    display:block;
+  }
+  .fs-line--top{
+    left:50%;
+    width:1px;
+    top:42px;
+    bottom:calc(50% + 34px);
+  }
+  .fs-line--bottom{
+    left:50%;
+    width:1px;
+    top:calc(50% + 34px);
+    bottom:42px;
+  }
+  .fs-line--left{
+    top:50%;
+    height:1px;
+    left:72px;
+    right:calc(50% + 76px);
+  }
+  .fs-line--right{
+    top:50%;
+    height:1px;
+    left:calc(50% + 76px);
+    right:72px;
+  }
+
+  /* ---- «Что может измениться»: таблица 3×2 ---- */
+  .fs-changes{
+    padding-block:clamp(54px,13vh,72px);
+  }
+  .fs-changes__head{
+    grid-column:1 / span 6;
+    margin-bottom:32px;
+  }
+  .fs-changes__grid{
+    grid-column:1 / -1;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .fs-changes .fs-change{
+    min-width:0;
+    min-height:128px;
+    padding:22px 20px 24px;
+    border-right-width:1px;
+    border-right-style:solid;
+    border-right-color:transparent;
+  }
+  .fs-changes .fs-change:nth-child(3n){
+    border-right:0;
+  }
+  .fs-changes.in .fs-change:not(:nth-child(3n)){
+    border-right-color:var(--line);
+  }
+  .fs-changes.in .fs-change:nth-child(3n){
+    border-right-color:transparent;
+  }
+  .fs-change b{
+    font-size:clamp(20px,5.4vh,27px);
+    letter-spacing:.045em;
+  }
+  .fs-change span{
+    font-size:11.5px;
+    line-height:1.48;
+  }
+  .fs-changes__note{
+    grid-column:1 / span 9;
+    margin-top:22px;
+    font-size:11.5px;
+  }
+  /* порядок появления: 1 → 2 → 3 → 6 → 5 → 4 */
+  .fs-changes.in .fs-change:nth-child(1){
+    transition-delay:.50s,.50s,.20s;
+  }
+  .fs-changes.in .fs-change:nth-child(2){
+    transition-delay:.82s,.82s,.20s;
+  }
+  .fs-changes.in .fs-change:nth-child(3){
+    transition-delay:1.14s,1.14s,.20s;
+  }
+  .fs-changes.in .fs-change:nth-child(6){
+    transition-delay:1.46s,1.46s,.20s;
+  }
+  .fs-changes.in .fs-change:nth-child(5){
+    transition-delay:1.78s,1.78s,.20s;
+  }
+  .fs-changes.in .fs-change:nth-child(4){
+    transition-delay:2.10s,2.10s,.20s;
+  }
+
+  /* ---- «Опыт»: sticky-фото слева, факты справа ---- */
+  .fs-exp{
+    padding-block:clamp(54px,13vh,72px);
+    align-items:start;
+  }
+  .fs-exp__photo{
+    grid-column:1 / span 5;
+    position:sticky;
+    top:calc(var(--nav-height) + env(safe-area-inset-top) + 14px);
+    height:calc(100svh - var(--nav-height) - env(safe-area-inset-top) - 28px);
+    min-height:280px;
+    max-height:360px;
+  }
+  .fs-exp__body{
+    grid-column:7 / span 6;
+    margin-top:0;
+    align-self:start;
+  }
+  .fs-exp .facts{
+    margin-top:22px;
+  }
+  .fs-exp .fact{
+    grid-template-columns:105px minmax(0,1fr);
+    gap:14px;
+    padding:13px 0;
+  }
+  .fs-exp .fact__cat{
+    font-size:8.5px;
+    line-height:1.4;
+    letter-spacing:.15em;
+  }
+  .fs-exp .fact__val{
+    font-size:12px;
+    line-height:1.48;
+  }
+  .fs-exp__extra{
+    margin-top:18px;
+    font-size:9px;
+    line-height:1.55;
+  }
+
+  /* ---- «Как начинается работа»: кардиограмма full-bleed ---- */
+  .fs-how{
+    padding-block:clamp(54px,13vh,72px);
+    overflow-x:clip;
+  }
+  .fs-how__head{
+    grid-column:1 / span 7;
+    margin-bottom:26px;
+  }
+  .fs-rhythm{
+    grid-column:1 / -1;
+    height:96px;
+  }
+  .fs-rhythm svg{
+    width:100vw;
+    height:96px;
+  }
+  .fs-how__stages{
+    grid-column:1 / -1;
+    margin-top:16px;
+    gap:0;
+  }
+  .fs-stage{
+    flex:1 1 0;
+    min-width:0;
+  }
+  .fs-stage b,
+  .fs-stage:first-child b{
+    font-size:10px;
+    line-height:1.3;
+    letter-spacing:.12em;
+  }
+  .fs-how__cta{
+    grid-column:1 / -1;
+    width:auto;
+    margin-top:32px;
+    justify-self:start;
+  }
+  .fs-how__cta .btn{
+    width:auto;
+    min-height:42px;
+  }
+
+  /* ---- Финальная CTA: split-композиция в один экран ---- */
+  .fs-final{
+    min-height:100svh;
+  }
+  .fs-final__photo{
+    width:56%;
+  }
+  .fs-final__photo::after{
+    background:
+      linear-gradient(
+        90deg,
+        var(--ink) 0%,
+        rgba(11,14,15,.88) 34%,
+        rgba(11,14,15,.24) 76%,
+        rgba(11,14,15,.5) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(11,14,15,.42),
+        rgba(11,14,15,.18) 42%,
+        rgba(11,14,15,.68)
+      );
+  }
+  .fs-final__inner{
+    grid-column:1 / span 7;
+  }
+  .fs-final h2{
+    font-size:clamp(36px,9.4vh,46px);
+    line-height:1.03;
+  }
+  .fs-final p{
+    margin-top:14px;
+    max-width:40ch;
+    font-size:12.75px;
+    line-height:1.55;
+  }
+  .fs-final__action{
+    margin-top:20px;
+  }
+  .fs-final__action .btn{
+    width:auto;
+    min-height:42px;
+  }
+
+  /* ---- Footer: низкая высота landscape, без горизонтального overflow ---- */
+  .foot{
+    padding:
+      clamp(52px,13vh,68px)
+      max(var(--pad),env(safe-area-inset-left))
+      max(22px,env(safe-area-inset-bottom))
+      max(var(--pad),env(safe-area-inset-right));
+  }
+  .foot__krym{
+    font-size:10px;
+  }
+  .foot__word{
+    width:100%;
+    margin:18px 0 26px;
+  }
+  .foot__word > span{
+    display:block;
+    width:100%;
+  }
+  .foot__logo-word{
+    display:block;
+    width:min(100%,650px);
+    margin-inline:auto;
+  }
+  .foot__nav{
+    font-size:10px;
+    letter-spacing:.15em;
+    gap:12px;
+    flex-wrap:nowrap;
+  }
+  .foot__tech{
+    margin-top:42px;
+    padding-top:18px;
+    font-size:11px;
+    gap:12px 18px;
+    justify-content:center;
+    text-align:center;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <nav class="nav" id="nav">
-  <a class="brand" href="#" aria-label="MINATAVR — наверх"><svg class="brand__logo" viewBox="0 0 1084 212" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.32 147.76H28.88V80.24H14.32V58H65.2L89.68 140.4L114.16 58H164.72V80.24H150.32V147.76H164.72V170H115.44V147.76H127.76V82.32H126.96L100.08 170H78.8L51.92 82.32H51.28V147.76H63.6V170H14.32V147.76Z"/>
+  <a class="brand" href="index.html" aria-label="MINATAVR — на главную"><svg class="brand__logo" viewBox="0 0 1084 212" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.32 147.76H28.88V80.24H14.32V58H65.2L89.68 140.4L114.16 58H164.72V80.24H150.32V147.76H164.72V170H115.44V147.76H127.76V82.32H126.96L100.08 170H78.8L51.92 82.32H51.28V147.76H63.6V170H14.32V147.76Z"/>
 <path d="M188.32 147.76H203.04V80.24H188.32V58H241.12V80.24H226.4V147.76H241.12V170H188.32V147.76Z"/>
 <path d="M302.44 91.6V147.76H319.88V170H265.32V147.76H280.04V80.4L279.88 80.24H265V58H308.04L355.24 130.8V80.24H340.36V58H390.6V80.24H377.64V171.28H354.12L302.44 91.6Z"/>
 <path d="M405.16 147.76H418.44L444.68 80.4L444.52 80.24H428.84V58H486.28L518.6 147.76H532.36V170H477V147.76H492.52L487.24 133.04H447.4L441.8 147.76H458.92V170H405.16V147.76ZM481 114.48L469.16 81.52H466.44L453.96 114.48H481Z"/>
@@ -1465,419 +2762,330 @@ body.menu-open{overflow:hidden}
 <path d="M870.601 77.8945C865.24 77.3166 859.62 76.206 853.289 74.5166C848.542 73.2501 845.994 72.1997 841.329 70.5293C839.763 69.9685 837.766 69.2195 836.159 68.6104C835.356 68.306 834.652 68.0369 834.147 67.8438C833.895 67.7472 833.693 67.6696 833.555 67.6162C833.485 67.5896 833.432 67.5687 833.396 67.5547C833.378 67.5478 833.364 67.5426 833.354 67.5391C833.35 67.5373 833.346 67.5361 833.344 67.5352C833.343 67.5347 833.341 67.5344 833.341 67.5342V67.5332H833.34L831.985 67.0107L832.731 68.2568V68.2578C832.732 68.2586 832.733 68.2602 832.734 68.2617C832.736 68.2647 832.739 68.269 832.742 68.2744C832.749 68.2857 832.758 68.3027 832.771 68.3242C832.798 68.3674 832.837 68.4304 832.887 68.5117C832.987 68.6748 833.134 68.9111 833.319 69.2021C833.69 69.7841 834.216 70.5896 834.84 71.4834C836.082 73.2626 837.733 75.4262 839.324 76.8701C841.586 78.9228 845.023 80.6995 847.856 81.9541C849.28 82.5845 850.565 83.0885 851.494 83.4355C851.596 83.4738 851.696 83.5076 851.789 83.542C851.512 83.6641 851.193 83.8067 850.843 83.9668C849.57 84.5482 847.87 85.3666 846.167 86.3125C844.469 87.2561 842.748 88.3376 841.445 89.4473C840.794 90.002 840.232 90.5774 839.829 91.1592C839.429 91.7377 839.16 92.3602 839.16 93C839.16 93.6977 839.536 94.2704 840.066 94.7227C840.593 95.1718 841.317 95.5436 842.138 95.8574C843.784 96.4867 845.953 96.9311 848.088 97.2451C850.23 97.5601 852.369 97.7485 853.97 97.8584C854.771 97.9134 855.438 97.9481 855.906 97.9697C856.046 97.9762 856.169 97.9812 856.271 97.9854C856.285 98.0372 856.301 98.0946 856.317 98.1572C856.409 98.5019 856.544 99.0074 856.717 99.6514C857.062 100.94 857.557 102.782 858.154 104.997C859.35 109.427 860.96 115.351 862.616 121.321C864.273 127.291 865.977 133.311 867.361 137.933C868.053 140.243 868.666 142.209 869.154 143.646C869.398 144.364 869.614 144.956 869.793 145.396C869.883 145.616 869.965 145.806 870.042 145.956C870.11 146.09 870.199 146.245 870.307 146.354C870.689 146.736 871.238 147.04 871.867 147.286C872.503 147.535 873.256 147.738 874.08 147.897C875.728 148.217 877.699 148.375 879.66 148.375C881.621 148.375 883.592 148.217 885.24 147.897C886.064 147.738 886.817 147.535 887.453 147.286C888.083 147.04 888.632 146.736 889.014 146.354C889.123 146.244 889.21 146.088 889.277 145.953C889.353 145.802 889.436 145.613 889.523 145.394C889.699 144.953 889.909 144.36 890.146 143.643C890.62 142.205 891.214 140.238 891.883 137.928C893.22 133.306 894.862 127.286 896.456 121.316C898.05 115.346 899.597 109.423 900.746 104.992C901.32 102.777 901.795 100.935 902.126 99.6465C902.291 99.0025 902.421 98.497 902.51 98.1523C902.525 98.0917 902.539 98.0359 902.552 97.9854C902.659 97.9811 902.787 97.9764 902.935 97.9697C903.416 97.9481 904.103 97.9134 904.928 97.8584C906.575 97.7486 908.776 97.56 910.98 97.2451C913.178 96.9312 915.408 96.4877 917.1 95.8594C917.943 95.546 918.687 95.1745 919.228 94.7266C919.77 94.2767 920.16 93.7035 920.16 93C920.16 92.3653 919.904 91.7452 919.518 91.166C919.13 90.5842 918.588 90.0094 917.96 89.4541C916.704 88.3435 915.046 87.2614 913.41 86.3174C911.77 85.371 910.131 84.5513 908.905 83.9697C908.558 83.8052 908.244 83.6596 907.972 83.5352C908.068 83.4974 908.171 83.4603 908.277 83.418C909.17 83.063 910.405 82.5489 911.774 81.9121C914.5 80.6448 917.809 78.8682 919.997 76.8691C921.582 75.4207 923.234 73.2574 924.477 71.4795C925.101 70.5862 925.629 69.7822 926 69.2012C926.186 68.9107 926.332 68.6754 926.433 68.5127C926.483 68.4313 926.522 68.3674 926.548 68.3242C926.561 68.3028 926.571 68.2866 926.578 68.2754C926.581 68.2699 926.584 68.2656 926.586 68.2627C926.587 68.2612 926.587 68.2596 926.588 68.2588L926.589 68.2578L927.472 66.7881L925.937 67.5527L925.894 67.5742C925.865 67.5886 925.821 67.6102 925.766 67.6377C925.654 67.6927 925.492 67.772 925.289 67.8711C924.883 68.0694 924.316 68.3452 923.667 68.6533C922.367 69.2709 920.753 70.0162 919.472 70.5371C914.586 72.524 911.696 73.2609 906.542 74.5137C900.048 76.092 894.307 77.2073 888.84 77.8203V58H945V80.2402H931.561L897 170H861.32L826.76 80.2402H813V58H870.601V77.8945Z"/></svg></a>
   <div class="right">
     <ul>
-      <li><a href="#directions">Направления</a></li>
-      <li><a href="#trust">О Никите</a></li>
-      <li><a href="#stories">Истории</a></li>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="#formats">Форматы</a></li>
+      <li><a href="#approach">Подход</a></li>
+      <li><a href="#result-system">Результат</a></li>
+      <li><a href="#how-to-start">Как начать</a></li>
     </ul>
-    <a class="btn" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Начать разговор</a>
+    <a class="btn" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Написать Никите</a>
   </div>
-  <button type="button" class="nav__burger" id="navBurger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+  <button type="button" class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Открыть меню">
     <span class="nav__burger-line"></span>
     <span class="nav__burger-line"></span>
   </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu" hidden>
-  <nav class="mobile-menu__list" aria-label="Мобильная навигация">
-    <a class="mobile-menu__link" href="#directions">Направления</a>
-    <a class="mobile-menu__link" href="#trust">О Никите</a>
-    <a class="mobile-menu__link" href="#stories">Истории</a>
-    <a class="mobile-menu__cta" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Начать разговор</a>
-  </nav>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
+  <div class="mobile-menu__list">
+    <a class="mobile-menu__link" href="index.html">Главная</a>
+    <a class="mobile-menu__link" href="#formats">Форматы</a>
+    <a class="mobile-menu__link" href="#approach">Подход</a>
+    <a class="mobile-menu__link" href="#result-system">Результат</a>
+    <a class="mobile-menu__link" href="#how-to-start">Как начать</a>
+  </div>
+  <a class="mobile-menu__cta" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer">
+    <span class="dot"></span>
+    Написать Никите
+  </a>
 </div>
 
 <!-- ===== HERO ===== -->
-<header class="hero">
-  <div class="hero__video">
-    <img class="hero__image" src="minatavr-hero.webp" alt="" aria-hidden="true">
-    <video autoplay muted loop playsinline poster="minatavr-hero.webp"></video>
-  </div>
-  <div class="hero__grade"></div>
-  <div class="hero__grain"></div>
-
+<header class="fs-hero">
+  <div class="fs-hero__bg"><img src="directions-strength.webp" alt=""></div>
+  <div class="fs-hero__grade"></div>
   <div class="grid">
-    <div class="hero__copy">
-      <h1 class="rv" id="h1"><span class="hero__line hero__line--first">Путь, после которого</span><span class="hero__line soft">многое меняется</span></h1>
-      <p class="hero__tags rv" id="htags">Тренировки · Походы по Крыму · Одежда</p>
-      <p class="hero__sub rv" id="hsub">
-        <span class="hero__sub-em">Через тело, движение и новый опыт.</span>
-        <span class="hero__sub-main">MINATAVR помогает выстроить систему, в которой изменения становятся частью жизни.</span>
-      </p>
-      <div class="hero__cta rv" id="hcta">
-        <a class="btn" href="#directions"><span class="dot"></span>Посмотреть направления</a>
+    <div class="fs-hero__copy">
+      <span class="fs-label rv" id="sLabel">Направление</span>
+      <h1>
+        <span class="fs-tl" id="sLine1"><span>Стать</span></span>
+        <span class="fs-tl" id="sLine2"><span>сильнее</span></span>
+      </h1>
+      <p class="fs-hero__thought"><b class="rv" id="sThought1">Не просто начать тренироваться.</b><span class="rv" id="sThought2">Выстроить систему, которую можно поддерживать в обычной жизни.</span></p>
+      <div class="fs-hero__tags rv" id="sTags">
+        <span>Персонально · В группе · Онлайн</span>
+        <span>План тренировок · Питание</span>
       </div>
+      <div class="fs-hero__cta rv" id="sCta"><a class="btn" href="#formats"><span class="dot"></span>Выбрать формат</a></div>
     </div>
   </div>
 </header>
 
-<div class="after-hero">
-
-  <!-- ===== INTRO — quiet pause ===== -->
-  <section class="grid intro" id="directions">
-    <span class="label intro__label">Направления</span>
-    <p class="intro__text">Всё начинается по-разному. <b>Но цель одна — помочь человеку построить сильную основу для жизни.</b> Вернуть силу телу. Выйти из привычного ритма. Сохранить опыт, который хочется унести с собой. Начните с того, что важно именно вам.</p>
-  </section>
-
-  <!-- ===== 1 — СТАТЬ СИЛЬНЕЕ · БЛИЗКО ===== -->
-  <section class="grid dir d1 obs">
-    <div class="d1__type">
-      <h3>Стать сильнее</h3>
-      <p class="dir__tags">Персонально · в группе · онлайн</p>
-      <p>Сила начинается не с рывка, а с системы. Движение, режим, восстановление и питание становятся частью жизни — спокойно, последовательно и без гонки за быстрым результатом.</p>
-      <p class="dir__note">План тренировок или питания можно получить отдельно.</p>
-      <a class="go" href="strength.html"><span class="track"></span>Смотреть форматы</a>
-    </div>
-    <figure class="d1__shot shot reveal-mask">
-      <img class="d1__img" src="directions-strength.webp" alt="">
-    </figure>
-  </section>
-
-  <!-- ===== 2 — ОТКРЫТЬ КРЫМ · ДАЛЕКО ===== -->
-  <section class="grid dir d2 obs">
-    <div class="d2__type">
-      <h3>Открыть Крым</h3>
-      <p class="dir__tags">Маршруты · подготовка · сопровождение</p>
-      <p>Крым раскрывается в движении. Подготовка, маршрут и сопровождение помогают пройти его спокойно, глубже почувствовать место и вернуться с новым ощущением себя.</p>
-      <a class="go" href="#"><span class="track"></span>Смотреть маршруты</a>
-    </div>
-    <div class="d2__field">
-      <figure class="shot reveal-mask">
-        <img class="d2__img" src="directions-crimea.webp" alt="">
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===== 3 — СОХРАНИТЬ ПУТЬ · МАКРО ===== -->
-  <section class="grid dir d3 obs">
-    <figure class="d3__shot shot reveal-mask">
-      <img class="d3__img" src="directions-wear.webp" alt="">
-    </figure>
-    <div class="d3__type">
-      <h3>Выбрать своё</h3>
-      <p>Одежда MINATAVR для движения, дороги и каждого дня. Вещи с характером, которым не нужен особый повод.</p>
-      <a class="go" href="#"><span class="track"></span>Смотреть коллекцию</a>
-    </div>
-  </section>
-
-  <!-- ===== ПОЧЕМУ ДОВЕРЯЮТ · ЧЕЛОВЕК ===== -->
-  <section class="grid trust obs">
-    <div class="trust__portrait" id="trust">
-      <figure class="shot reveal-mask">
-        <img class="trust__img" src="trust-nikita.webp" alt="">
-      </figure>
+<!-- ===== FORMATS ===== -->
+<section class="grid fs-formats obs" id="formats">
+  <div class="fs-formats__head">
+    <span class="fs-label">Форматы</span>
+    <h2 class="fs-h2">Разные форматы —<br>одна система</h2>
+    <p class="fs-intro">Работа может строиться по-разному. Выберите вариант, который ближе к вашей задаче, условиям и привычному ритму.</p>
+  </div>
+  <div class="fs-mosaic-wrap">
+    <div class="fs-mosaic">
+        <button type="button" class="fs-tile fs-tile--personal" data-format="personal" aria-haspopup="dialog">
+          <img class="fs-tile__img" src="directions-strength.webp" alt="">
+          <span class="fs-tile__body">
+            <span class="fs-tile__name">Персонально</span>
+            <span class="fs-tile__sub">Работа один на один с учётом цели, подготовки и режима.</span>
+            <span class="fs-tile__more">Подробнее <svg viewBox="0 0 44 8" fill="none" aria-hidden="true"><path d="M0 4H41" stroke="currentColor" stroke-width="1"/><path d="M36 1L41.5 4L36 7" stroke="currentColor" stroke-width="1" fill="none"/></svg></span>
+          </span>
+        </button>
+        <button type="button" class="fs-tile fs-tile--group" data-format="group" aria-haspopup="dialog">
+          <img class="fs-tile__img" src="stories-main.webp" alt="">
+          <span class="fs-tile__body">
+            <span class="fs-tile__name">В группе</span>
+            <span class="fs-tile__sub">Общий ритм, движение и поддержка группы.</span>
+            <span class="fs-tile__more">Подробнее <svg viewBox="0 0 44 8" fill="none" aria-hidden="true"><path d="M0 4H41" stroke="currentColor" stroke-width="1"/><path d="M36 1L41.5 4L36 7" stroke="currentColor" stroke-width="1" fill="none"/></svg></span>
+          </span>
+        </button>
+        <button type="button" class="fs-tile fs-tile--online" data-format="online" aria-haspopup="dialog">
+          <img class="fs-tile__img" src="stories-side-01.webp" alt="">
+          <span class="fs-tile__body">
+            <span class="fs-tile__name">Онлайн</span>
+            <span class="fs-tile__sub">Система и контроль независимо от места.</span>
+            <span class="fs-tile__more">Подробнее <svg viewBox="0 0 44 8" fill="none" aria-hidden="true"><path d="M0 4H41" stroke="currentColor" stroke-width="1"/><path d="M36 1L41.5 4L36 7" stroke="currentColor" stroke-width="1" fill="none"/></svg></span>
+          </span>
+        </button>
+        <button type="button" class="fs-tile fs-tile--plan" data-format="plan" aria-haspopup="dialog">
+          <img class="fs-tile__img" src="step-hero.webp" alt="">
+          <span class="fs-tile__body">
+            <span class="fs-tile__name">План тренировок</span>
+            <span class="fs-tile__sub">Самостоятельная работа по понятной программе.</span>
+            <span class="fs-tile__more">Подробнее <svg viewBox="0 0 44 8" fill="none" aria-hidden="true"><path d="M0 4H41" stroke="currentColor" stroke-width="1"/><path d="M36 1L41.5 4L36 7" stroke="currentColor" stroke-width="1" fill="none"/></svg></span>
+          </span>
+        </button>
+        <button type="button" class="fs-tile fs-tile--food" data-format="food" aria-haspopup="dialog">
+          <img class="fs-tile__img" src="trust-nikita.webp" alt="">
+          <span class="fs-tile__body">
+            <span class="fs-tile__name">Питание</span>
+            <span class="fs-tile__sub">Структура питания под цель и обычный образ жизни.</span>
+            <span class="fs-tile__more">Подробнее <svg viewBox="0 0 44 8" fill="none" aria-hidden="true"><path d="M0 4H41" stroke="currentColor" stroke-width="1"/><path d="M36 1L41.5 4L36 7" stroke="currentColor" stroke-width="1" fill="none"/></svg></span>
+          </span>
+        </button>
     </div>
 
-    <div class="trust__body">
-      <span class="label">Почему доверяют</span>
-      <p class="trust__name">Никита Минаев</p>
-
-      <h2>
-        <span class="tl"><span>Опора</span></span>
-        <span class="tl"><span>на всём пути</span></span>
-      </h2>
-
-      <p class="trust__quote">«Неважно, с чего вы начинаете.<br>Важно, к чему хотите прийти».</p>
-      <p class="trust__p">У каждого свой ритм, свои обстоятельства и своя причина начать. Поэтому я не подстраиваю вас под готовую схему — помогаю найти подход, который действительно можно сделать частью вашей жизни.</p>
-
-      <div class="facts">
-        <div class="fact">
-          <span class="fact__cat">Практика</span>
-          <span class="fact__val">Тренер с 2021 года. С 2023 года — Mriya Resort.</span>
+    <div class="fs-overlay" id="fsOverlay" role="dialog" aria-modal="false" aria-hidden="true" aria-label="Подробности формата">
+      <div class="fs-overlay__bg"></div>
+      <div class="fs-overlay__shade"></div>
+      <button type="button" class="fs-overlay__close" aria-label="Закрыть подробности формата"></button>
+      <div class="fs-overlay__inner">
+        <div class="fs-overlay__head">
+          <div class="fs-overlay__title"></div>
+          <p class="fs-overlay__short"></p>
         </div>
-        <div class="fact">
-          <span class="fact__cat">Образование</span>
-          <span class="fact__val">КФУ им. В. И. Вернадского, магистратура по направлению «Спорт».</span>
+        <div class="fs-overlay__cols">
+          <div class="fs-overlay__col fs-overlay__col--who"><span class="fs-overlay__k">Кому подходит</span><p id="fsWho"></p></div>
+          <div class="fs-overlay__col fs-overlay__col--incl"><span class="fs-overlay__k">Что входит</span><ul id="fsIncl"></ul></div>
+          <div class="fs-overlay__col fs-overlay__col--how"><span class="fs-overlay__k">Как проходит</span><p id="fsHow"></p></div>
         </div>
-        <div class="fact">
-          <span class="fact__cat">Квалификация</span>
-          <span class="fact__val">Персональный тренер и инструктор-проводник по пешеходному туризму и треккингу.</span>
-        </div>
-        <div class="fact">
-          <span class="fact__cat">Походы</span>
-          <span class="fact__val">30+ самостоятельно организованных походов по 13 маршрутам. Группы до 33 человек.</span>
-        </div>
-      </div>
-
-      <div class="trust__cta">
-        <a class="btn" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Написать мне</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ПОЧЕМУ ПОЯВИЛСЯ MINATAVR ===== -->
-  <section class="grid origin" id="origin">
-    <div class="origin__lockup" id="lockup" aria-label="MINATAVR">
-      <span class="origin__part origin__part--mina"><svg viewBox="0 0 539 192" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.32 137.76H23.88V70.24H9.32V48H60.2L84.68 130.4L109.16 48H159.72V70.24H145.32V137.76H159.72V160H110.44V137.76H122.76V72.32H121.96L95.08 160H73.8L46.92 72.32H46.28V137.76H58.6V160H9.32V137.76Z" fill="currentColor"/>
-<path d="M183.32 137.76H198.04V70.24H183.32V48H236.12V70.24H221.4V137.76H236.12V160H183.32V137.76Z" fill="currentColor"/>
-<path d="M297.44 81.6V137.76H314.88V160H260.32V137.76H275.04V70.4L274.88 70.24H260V48H303.04L350.24 120.8V70.24H335.36V48H385.6V70.24H372.64V161.28H349.12L297.44 81.6Z" fill="currentColor"/>
-<path d="M400.16 137.76H413.44L439.68 70.4L439.52 70.24H423.84V48H481.28L513.6 137.76H527.36V160H472V137.76H487.52L482.24 123.04H442.4L436.8 137.76H453.92V160H400.16V137.76ZM476 104.48L464.16 71.52H461.44L448.96 104.48H476Z" fill="currentColor"/></svg></span>
-
-      <div class="origin__bar" aria-hidden="true">
-        <svg width="510" height="36" viewBox="0 0 510 36" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="473.5" y="3.5" width="7" height="29" rx="3.5" stroke="#51591F"/>
-          <rect x="464.5" y="0.5" width="7" height="35" rx="3.5" stroke="#51591F"/>
-          <rect x="482.5" y="8.5" width="7" height="20" rx="3.5" stroke="#51591F"/>
-          <rect x="29.5" y="3.5" width="7" height="29" rx="3.5" stroke="#51591F"/>
-          <rect x="38.5" y="0.5" width="7" height="35" rx="3.5" stroke="#51591F"/>
-          <rect x="20.5" y="8.5" width="7" height="20" rx="3.5" stroke="#51591F"/>
-          <rect x="0.5" y="17.5" width="509" height="2" rx="1" stroke="#51591F"/>
-        </svg>
-      </div>
-
-      <span class="origin__part origin__part--tavr"><svg viewBox="0 0 545 192" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M39.32 137.76H62.36V69.92H41.08C40.9733 69.92 40.92 69.9733 40.92 70.08C40.92 70.08 40.8667 70.08 40.76 70.08C40.76 70.08 40.76 70.1333 40.76 70.24V93.44H18.52V40.16H40.76V48H107.48V40.16H129.72V93.44H107.48V70.24C107.48 70.1333 107.427 70.08 107.32 70.08C107.32 69.9733 107.267 69.92 107.16 69.92H85.72V137.76H108.76V160H39.32V137.76Z" fill="currentColor"/>
-<path d="M151.16 137.76H164.44L190.68 70.4L190.52 70.24H174.84V48H232.28L264.6 137.76H278.36V160H223V137.76H238.52L233.24 123.04H193.4L187.8 137.76H204.92V160H151.16V137.76ZM227 104.48L215.16 71.52H212.44L199.96 104.48H227Z" fill="currentColor"/>
-<path d="M430.32 137.76H445.04V70.24H430.32V48H491.28C503.76 48 513.627 50.9333 520.88 56.8C528.133 62.6667 531.76 70.6667 531.76 80.8C531.76 88.2667 529.787 94.6133 525.84 99.84C521.893 105.067 516.4 108.8 509.36 111.04L531.28 137.76H542.8V160H490.8V137.76H501.84L484.4 115.84H468.4V137.76H479.76V160H430.32V137.76ZM488.88 98.08C494.32 98.08 498.64 96.8 501.84 94.24C505.147 91.5733 506.8 88.0533 506.8 83.68C506.8 79.3067 505.147 75.7867 501.84 73.12C498.64 70.4533 494.32 69.12 488.88 69.12H468.4V98.08H488.88Z" fill="currentColor"/>
-<path d="M344.601 67.8945C339.24 67.3166 333.62 66.206 327.289 64.5166C322.542 63.2501 319.994 62.1997 315.329 60.5293C313.763 59.9685 311.766 59.2195 310.159 58.6104C309.356 58.306 308.652 58.0369 308.147 57.8438C307.895 57.7472 307.693 57.6696 307.555 57.6162C307.485 57.5896 307.432 57.5687 307.396 57.5547C307.378 57.5478 307.364 57.5426 307.354 57.5391C307.35 57.5373 307.346 57.5361 307.344 57.5352C307.343 57.5347 307.341 57.5344 307.341 57.5342V57.5332H307.34L305.985 57.0107L306.731 58.2568V58.2578C306.732 58.2586 306.733 58.2602 306.734 58.2617C306.736 58.2647 306.739 58.269 306.742 58.2744C306.749 58.2857 306.758 58.3027 306.771 58.3242C306.798 58.3674 306.837 58.4304 306.887 58.5117C306.987 58.6748 307.134 58.9111 307.319 59.2021C307.69 59.7841 308.216 60.5896 308.84 61.4834C310.082 63.2626 311.733 65.4262 313.324 66.8701C315.586 68.9228 319.023 70.6995 321.856 71.9541C323.28 72.5845 324.565 73.0885 325.494 73.4355C325.596 73.4738 325.696 73.5076 325.789 73.542C325.512 73.6641 325.193 73.8067 324.843 73.9668C323.57 74.5482 321.87 75.3666 320.167 76.3125C318.469 77.2561 316.748 78.3376 315.445 79.4473C314.794 80.002 314.232 80.5774 313.829 81.1592C313.429 81.7377 313.16 82.3602 313.16 83C313.16 83.6977 313.536 84.2704 314.066 84.7227C314.593 85.1718 315.317 85.5436 316.138 85.8574C317.784 86.4867 319.953 86.9311 322.088 87.2451C324.23 87.5601 326.369 87.7485 327.97 87.8584C328.771 87.9134 329.438 87.9481 329.906 87.9697C330.046 87.9762 330.169 87.9812 330.271 87.9854C330.285 88.0372 330.301 88.0946 330.317 88.1572C330.409 88.5019 330.544 89.0074 330.717 89.6514C331.062 90.9397 331.557 92.782 332.154 94.9971C333.35 99.4274 334.96 105.351 336.616 111.321C338.273 117.291 339.977 123.311 341.361 127.933C342.053 130.243 342.666 132.209 343.154 133.646C343.398 134.364 343.614 134.956 343.793 135.396C343.883 135.616 343.965 135.806 344.042 135.956C344.11 136.09 344.199 136.245 344.307 136.354C344.689 136.736 345.238 137.04 345.867 137.286C346.503 137.535 347.256 137.738 348.08 137.897C349.728 138.217 351.699 138.375 353.66 138.375C355.621 138.375 357.592 138.217 359.24 137.897C360.064 137.738 360.817 137.535 361.453 137.286C362.083 137.04 362.632 136.736 363.014 136.354C363.123 136.244 363.21 136.088 363.277 135.953C363.353 135.802 363.436 135.613 363.523 135.394C363.699 134.953 363.909 134.36 364.146 133.643C364.62 132.205 365.214 130.238 365.883 127.928C367.22 123.306 368.862 117.286 370.456 111.316C372.05 105.346 373.597 99.4225 374.746 94.9922C375.32 92.7772 375.795 90.9348 376.126 89.6465C376.291 89.0025 376.421 88.497 376.51 88.1523C376.525 88.0917 376.539 88.0359 376.552 87.9854C376.659 87.9811 376.787 87.9764 376.935 87.9697C377.416 87.9481 378.103 87.9134 378.928 87.8584C380.575 87.7486 382.776 87.56 384.98 87.2451C387.178 86.9312 389.408 86.4877 391.1 85.8594C391.943 85.546 392.687 85.1745 393.228 84.7266C393.77 84.2767 394.16 83.7035 394.16 83C394.16 82.3653 393.904 81.7452 393.518 81.166C393.13 80.5842 392.588 80.0094 391.96 79.4541C390.704 78.3435 389.046 77.2614 387.41 76.3174C385.77 75.371 384.131 74.5513 382.905 73.9697C382.558 73.8052 382.244 73.6596 381.972 73.5352C382.068 73.4974 382.171 73.4603 382.277 73.418C383.17 73.063 384.405 72.5489 385.774 71.9121C388.5 70.6448 391.809 68.8682 393.997 66.8691C395.582 65.4207 397.234 63.2574 398.477 61.4795C399.101 60.5862 399.629 59.7822 400 59.2012C400.186 58.9107 400.332 58.6754 400.433 58.5127C400.483 58.4313 400.522 58.3674 400.548 58.3242C400.561 58.3028 400.571 58.2866 400.578 58.2754C400.581 58.2699 400.584 58.2656 400.586 58.2627C400.587 58.2612 400.587 58.2596 400.588 58.2588L400.589 58.2578L401.472 56.7881L399.937 57.5527L399.894 57.5742C399.865 57.5886 399.821 57.6102 399.766 57.6377C399.654 57.6927 399.492 57.772 399.289 57.8711C398.883 58.0694 398.316 58.3452 397.667 58.6533C396.367 59.2709 394.753 60.0162 393.472 60.5371C388.586 62.524 385.696 63.2609 380.542 64.5137C374.048 66.092 368.307 67.2073 362.84 67.8203V48H419V70.2402H405.561L371 160H335.32L300.76 70.2402H287V48H344.601V67.8945Z" fill="currentColor"/></svg></span>
-
-      <span class="origin__final" id="finalword"><svg viewBox="0 0 1084 212" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.32 147.76H28.88V80.24H14.32V58H65.2L89.68 140.4L114.16 58H164.72V80.24H150.32V147.76H164.72V170H115.44V147.76H127.76V82.32H126.96L100.08 170H78.8L51.92 82.32H51.28V147.76H63.6V170H14.32V147.76Z" fill="currentColor"/>
-<path d="M188.32 147.76H203.04V80.24H188.32V58H241.12V80.24H226.4V147.76H241.12V170H188.32V147.76Z" fill="currentColor"/>
-<path d="M302.44 91.6V147.76H319.88V170H265.32V147.76H280.04V80.4L279.88 80.24H265V58H308.04L355.24 130.8V80.24H340.36V58H390.6V80.24H377.64V171.28H354.12L302.44 91.6Z" fill="currentColor"/>
-<path d="M405.16 147.76H418.44L444.68 80.4L444.52 80.24H428.84V58H486.28L518.6 147.76H532.36V170H477V147.76H492.52L487.24 133.04H447.4L441.8 147.76H458.92V170H405.16V147.76ZM481 114.48L469.16 81.52H466.44L453.96 114.48H481Z" fill="currentColor"/>
-<path d="M568.32 147.76H591.36V79.92H570.08C569.973 79.92 569.92 79.9733 569.92 80.08C569.92 80.08 569.867 80.08 569.76 80.08C569.76 80.08 569.76 80.1333 569.76 80.24V103.44H547.52V50.16H569.76V58H636.48V50.16H658.72V103.44H636.48V80.24C636.48 80.1333 636.427 80.08 636.32 80.08C636.32 79.9733 636.267 79.92 636.16 79.92H614.72V147.76H637.76V170H568.32V147.76Z" fill="currentColor"/>
-<path d="M674.16 147.76H687.44L713.68 80.4L713.52 80.24H697.84V58H755.28L787.6 147.76H801.36V170H746V147.76H761.52L756.24 133.04H716.4L710.8 147.76H727.92V170H674.16V147.76ZM750 114.48L738.16 81.52H735.44L722.96 114.48H750Z" fill="currentColor"/>
-<path d="M964.32 147.76H979.04V80.24H964.32V58H1025.28C1037.76 58 1047.63 60.9333 1054.88 66.8C1062.13 72.6667 1065.76 80.6667 1065.76 90.8C1065.76 98.2667 1063.79 104.613 1059.84 109.84C1055.89 115.067 1050.4 118.8 1043.36 121.04L1065.28 147.76H1076.8V170H1024.8V147.76H1035.84L1018.4 125.84H1002.4V147.76H1013.76V170H964.32V147.76ZM1022.88 108.08C1028.32 108.08 1032.64 106.8 1035.84 104.24C1039.15 101.573 1040.8 98.0533 1040.8 93.68C1040.8 89.3067 1039.15 85.7867 1035.84 83.12C1032.64 80.4533 1028.32 79.12 1022.88 79.12H1002.4V108.08H1022.88Z" fill="currentColor"/>
-<path d="M870.601 77.8945C865.24 77.3166 859.62 76.206 853.289 74.5166C848.542 73.2501 845.994 72.1997 841.329 70.5293C839.763 69.9685 837.766 69.2195 836.159 68.6104C835.356 68.306 834.652 68.0369 834.147 67.8438C833.895 67.7472 833.693 67.6696 833.555 67.6162C833.485 67.5896 833.432 67.5687 833.396 67.5547C833.378 67.5478 833.364 67.5426 833.354 67.5391C833.35 67.5373 833.346 67.5361 833.344 67.5352C833.343 67.5347 833.341 67.5344 833.341 67.5342V67.5332H833.34L831.985 67.0107L832.731 68.2568V68.2578C832.732 68.2586 832.733 68.2602 832.734 68.2617C832.736 68.2647 832.739 68.269 832.742 68.2744C832.749 68.2857 832.758 68.3027 832.771 68.3242C832.798 68.3674 832.837 68.4304 832.887 68.5117C832.987 68.6748 833.134 68.9111 833.319 69.2021C833.69 69.7841 834.216 70.5896 834.84 71.4834C836.082 73.2626 837.733 75.4262 839.324 76.8701C841.586 78.9228 845.023 80.6995 847.856 81.9541C849.28 82.5845 850.565 83.0885 851.494 83.4355C851.596 83.4738 851.696 83.5076 851.789 83.542C851.512 83.6641 851.193 83.8067 850.843 83.9668C849.57 84.5482 847.87 85.3666 846.167 86.3125C844.469 87.2561 842.748 88.3376 841.445 89.4473C840.794 90.002 840.232 90.5774 839.829 91.1592C839.429 91.7377 839.16 92.3602 839.16 93C839.16 93.6977 839.536 94.2704 840.066 94.7227C840.593 95.1718 841.317 95.5436 842.138 95.8574C843.784 96.4867 845.953 96.9311 848.088 97.2451C850.23 97.5601 852.369 97.7485 853.97 97.8584C854.771 97.9134 855.438 97.9481 855.906 97.9697C856.046 97.9762 856.169 97.9812 856.271 97.9854C856.285 98.0372 856.301 98.0946 856.317 98.1572C856.409 98.5019 856.544 99.0074 856.717 99.6514C857.062 100.94 857.557 102.782 858.154 104.997C859.35 109.427 860.96 115.351 862.616 121.321C864.273 127.291 865.977 133.311 867.361 137.933C868.053 140.243 868.666 142.209 869.154 143.646C869.398 144.364 869.614 144.956 869.793 145.396C869.883 145.616 869.965 145.806 870.042 145.956C870.11 146.09 870.199 146.245 870.307 146.354C870.689 146.736 871.238 147.04 871.867 147.286C872.503 147.535 873.256 147.738 874.08 147.897C875.728 148.217 877.699 148.375 879.66 148.375C881.621 148.375 883.592 148.217 885.24 147.897C886.064 147.738 886.817 147.535 887.453 147.286C888.083 147.04 888.632 146.736 889.014 146.354C889.123 146.244 889.21 146.088 889.277 145.953C889.353 145.802 889.436 145.613 889.523 145.394C889.699 144.953 889.909 144.36 890.146 143.643C890.62 142.205 891.214 140.238 891.883 137.928C893.22 133.306 894.862 127.286 896.456 121.316C898.05 115.346 899.597 109.423 900.746 104.992C901.32 102.777 901.795 100.935 902.126 99.6465C902.291 99.0025 902.421 98.497 902.51 98.1523C902.525 98.0917 902.539 98.0359 902.552 97.9854C902.659 97.9811 902.787 97.9764 902.935 97.9697C903.416 97.9481 904.103 97.9134 904.928 97.8584C906.575 97.7486 908.776 97.56 910.98 97.2451C913.178 96.9312 915.408 96.4877 917.1 95.8594C917.943 95.546 918.687 95.1745 919.228 94.7266C919.77 94.2767 920.16 93.7035 920.16 93C920.16 92.3653 919.904 91.7452 919.518 91.166C919.13 90.5842 918.588 90.0094 917.96 89.4541C916.704 88.3435 915.046 87.2614 913.41 86.3174C911.77 85.371 910.131 84.5513 908.905 83.9697C908.558 83.8052 908.244 83.6596 907.972 83.5352C908.068 83.4974 908.171 83.4603 908.277 83.418C909.17 83.063 910.405 82.5489 911.774 81.9121C914.5 80.6448 917.809 78.8682 919.997 76.8691C921.582 75.4207 923.234 73.2574 924.477 71.4795C925.101 70.5862 925.629 69.7822 926 69.2012C926.186 68.9107 926.332 68.6754 926.433 68.5127C926.483 68.4313 926.522 68.3674 926.548 68.3242C926.561 68.3028 926.571 68.2866 926.578 68.2754C926.581 68.2699 926.584 68.2656 926.586 68.2627C926.587 68.2612 926.587 68.2596 926.588 68.2588L926.589 68.2578L927.472 66.7881L925.937 67.5527L925.894 67.5742C925.865 67.5886 925.821 67.6102 925.766 67.6377C925.654 67.6927 925.492 67.772 925.289 67.8711C924.883 68.0694 924.316 68.3452 923.667 68.6533C922.367 69.2709 920.753 70.0162 919.472 70.5371C914.586 72.524 911.696 73.2609 906.542 74.5137C900.048 76.092 894.307 77.2073 888.84 77.8203V58H945V80.2402H931.561L897 170H861.32L826.76 80.2402H813V58H870.601V77.8945Z" fill="currentColor"/></svg></span>
-    </div>
-
-    <div class="origin__legends">
-      <div class="origin__legend origin__legend--left">
-        <b>От фамилии Минаев.</b>
-        <span>Личная часть названия.</span>
-      </div>
-      <div class="origin__legend origin__legend--right">
-        <b>От тавров — древнего народа Крыма.</b>
-        <span>Крымская часть названия.</span>
-      </div>
-    </div>
-
-    <div class="origin__text" id="philosophy">
-      <p class="lead">Мой подход — точная нагрузка, интерес к процессу и результат, который остаётся.</p>
-      <div class="three">
-        <p>Нагрузка должна соответствовать человеку.</p>
-        <p>Процесс — давать желание продолжать.</p>
-        <p>Результат — оставаться частью жизни.</p>
-      </div>
-      <p class="end">СИЛА НЕ В ОДНОМ РЫВКЕ —<br>А В СПОСОБНОСТИ ПРОДОЛЖАТЬ.</p>
-    </div>
-  </section>
-
-  <!-- ===== ИСТОРИИ ЛЮДЕЙ ===== -->
-  <section class="grid stories obs">
-    <div class="stories__head" id="stories">
-      <h2>Истории людей</h2>
-      <p class="stories__intro">Здесь нет одинаковых историй. Каждый начинал со своей точки и двигался к результату в своём темпе.</p>
-      <a class="stories__all" href="#">Все истории
-        <svg class="arrow" viewBox="0 0 64 8" fill="none" aria-hidden="true">
-          <path d="M0 4 H61" stroke="currentColor" stroke-width="1"/>
-          <path class="head" d="M56 1 L61.5 4 L56 7" stroke="currentColor" stroke-width="1" fill="none"/>
-        </svg>
-      </a>
-    </div>
-
-    <div class="stories__body">
-      <article class="story story--lead">
-        <figure class="shot"><img class="story__img" src="stories-main.webp" alt=""></figure>
-        <div class="veil"></div>
-        <div class="story__copy">
-          <h3 class="story__name">Артём, 28</h3>
-          <span class="story__cut"></span>
-          <div class="story__block">
-            <p class="story__k">Точка старта</p>
-            <p class="story__v">Постоянная усталость, хаос в режиме, тренировки от случая к случаю.</p>
+        <div class="fs-overlay__foot">
+          <div class="fs-overlay__params">
+            <div class="fs-param"><b>Место</b><span>Уточняется</span></div>
+            <div class="fs-param"><b>Период</b><span>Индивидуально</span></div>
+            <div class="fs-param"><b>Связь</b><span>Telegram</span></div>
           </div>
-          <div class="story__block">
-            <p class="story__k">Что изменилось</p>
-            <p class="story__v">Появилась система. Тренировки стали опорой. Энергия и фокус вернулись.</p>
-          </div>
-          <p class="story__quote">«Не про форму. Про то, как ты держишь себя в жизни.»</p>
+          <a class="btn" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Обсудить формат</a>
         </div>
-      </article>
-
-      <div class="stories__right" tabindex="0" aria-label="Дополнительные истории людей. Горизонтальный список из двух карточек.">
-        <article class="story story--side" aria-label="История Марии, 1 из 2">
-          <figure class="shot"><img class="story__img" src="stories-side-01.webp" alt=""></figure>
-          <div class="story__copy">
-            <h3 class="story__name">Мария, 24</h3>
-            <span class="story__cut"></span>
-            <div class="story__block">
-              <p class="story__k">Точка старта</p>
-              <p class="story__v">Нерегулярный спорт, низкая выносливость, неуверенность.</p>
-            </div>
-            <div class="story__block">
-              <p class="story__k">Что изменилось</p>
-              <p class="story__v">Тело стало сильнее, появилась уверенность и внутренняя опора.</p>
-            </div>
-            <p class="story__quote">«Стала чувствовать себя на своём месте.»</p>
-          </div>
-        </article>
-
-        <article class="story story--side" aria-label="История Дениса, 2 из 2">
-          <figure class="shot"><img class="story__img story__img--denis" src="stories-side-02.webp" alt=""></figure>
-          <div class="story__copy">
-            <h3 class="story__name">Денис, 31</h3>
-            <span class="story__cut"></span>
-            <div class="story__block">
-              <p class="story__k">Точка старта</p>
-              <p class="story__v">Боли в спине, сидячая работа, отсутствие тонуса.</p>
-            </div>
-            <div class="story__block">
-              <p class="story__k">Что изменилось</p>
-              <p class="story__v">Исчезли боли, улучшилось самочувствие, появилась стабильная привычка.</p>
-            </div>
-            <p class="story__quote">«Это стало частью жизни, без чего уже не могу.»</p>
-          </div>
-        </article>
-      </div>
-      <div class="stories__mobile-pager" aria-hidden="true">
-        <span class="stories__mobile-count"><b id="storiesCurrent">1</b><span>/</span><span>2</span></span>
-        <span class="stories__mobile-progress"><i id="storiesProgress"></i></span>
-        <span class="stories__mobile-hint">Свайп</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== FAQ ===== -->
-  <section class="grid faq obs" id="faq">
-    <div class="faq__left">
-      <div class="faq__eyebrow"><span class="rule"></span><span>FAQ</span></div>
-      <h2><span>Что важно</span><br><span>знать</span><br><span>до начала</span></h2>
-      <div class="faq__cut"></div>
-      <p class="faq__note">Здесь собраны ответы на вопросы, которые обычно возникают перед началом — о формате, подготовке и выборе направления.</p>
+<!-- ===== START POINT ===== -->
+<section class="grid fs-start obs" id="start-point">
+  <div class="fs-start__photo"><img src="step-hero.webp" alt=""></div>
+  <div class="fs-start__body">
+    <span class="fs-label">Точка старта</span>
+    <h2 class="fs-h2">С какой точки<br>можно начать</h2>
+    <p class="fs-intro">Для начала не нужно уже быть в форме. Важно определить текущую точку и понять, к чему вы хотите прийти.</p>
+    <ul class="fs-startlist">
+      <li><b>Давно не тренировались</b><span>Вернуться в движение спокойно и без перегрузки.</span></li>
+      <li><b>Хотите набрать мышечную массу</b><span>Нагрузка и питание под задачу набора.</span></li>
+      <li><b>Хотите снизить вес</b><span>Система, которая работает без крайностей.</span></li>
+      <li><b>Хотите изменить форму тела</b><span>Точная работа над пропорциями и тонусом.</span></li>
+      <li><b>Не хватает системы и регулярности</b><span>Структура, которую можно удерживать.</span></li>
+      <li><b>Нужен самостоятельный план</b><span>Понятная программа для работы без сопровождения.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== APPROACH ===== -->
+<section class="grid fs-approach obs" id="approach">
+  <div class="fs-approach__left">
+    <span class="fs-label">Подход</span>
+    <h2 class="fs-h2">Как строится<br>работа</h2>
+    <p class="fs-intro">Нагрузка должна соответствовать человеку, а система — оставаться рабочей в обычной жизни.</p>
+  </div>
+  <div class="fs-approach__right">
+    <div class="fs-steps">
+      <span class="fs-steps__fill"></span>
+      <div class="fs-step"><b>Цель и текущая точка</b><span>Обсуждаем, к чему вы хотите прийти и с чего начинаем.</span></div>
+      <div class="fs-step"><b>Программа</b><span>Формируем структуру под цель и условия.</span></div>
+      <div class="fs-step"><b>Нагрузка</b><span>Подбираем уровень, с которого можно расти.</span></div>
+      <div class="fs-step"><b>Контроль</b><span>Следим за техникой, самочувствием и выполнением.</span></div>
+      <div class="fs-step"><b>Корректировка</b><span>Настраиваем систему по ходу процесса.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULT SYSTEM ===== -->
+<section class="grid fs-result obs" id="result-system">
+  <div class="fs-result__head">
+    <span class="fs-label">Результат</span>
+    <h2 class="fs-h2">Из чего складывается<br>результат</h2>
+  </div>
+  <div class="fs-scheme">
+    <span class="fs-line fs-line--top"></span>
+    <span class="fs-line fs-line--bottom"></span>
+    <span class="fs-line fs-line--left"></span>
+    <span class="fs-line fs-line--right"></span>
+    <div class="fs-node fs-node--center"><b>Система</b></div>
+    <div class="fs-node fs-node--load"><b>Нагрузка</b><span>Соответствует цели и уровню подготовки.</span></div>
+    <div class="fs-node fs-node--rec"><b>Восстановление</b><span>Позволяет телу адаптироваться.</span></div>
+    <div class="fs-node fs-node--food"><b>Питание</b><span>Поддерживает выбранную задачу.</span></div>
+    <div class="fs-node fs-node--reg"><b>Регулярность</b><span>Превращает действия в устойчивый процесс.</span></div>
+  </div>
+</section>
+
+<!-- ===== CHANGES ===== -->
+<section class="grid fs-changes obs">
+  <div class="fs-changes__head">
+    <span class="fs-label">Изменения</span>
+    <h2 class="fs-h2">Что может<br>измениться</h2>
+  </div>
+  <div class="fs-changes__grid">
+    <div class="fs-change"><b>Сила</b><span>Растёт способность работать с нагрузкой.</span></div>
+    <div class="fs-change"><b>Выносливость</b><span>Легче переносится длительное усилие.</span></div>
+    <div class="fs-change"><b>Форма тела</b><span>Меняются пропорции и тонус.</span></div>
+    <div class="fs-change"><b>Режим</b><span>Появляется устойчивый ритм недели.</span></div>
+    <div class="fs-change"><b>Общий тонус</b><span>Больше энергии в обычной жизни.</span></div>
+    <div class="fs-change"><b>Уверенность</b><span>Опора на то, что тело справляется.</span></div>
+  </div>
+  <p class="fs-changes__note">Конкретные изменения зависят от начальной точки, задачи, регулярности и выбранного формата работы.</p>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="grid fs-exp obs">
+  <div class="fs-exp__photo"><img src="trust-nikita.webp" alt=""></div>
+  <div class="fs-exp__body">
+    <span class="fs-label">Опыт</span>
+    <h2 class="fs-h2">Никита Минаев</h2>
+    <div class="facts">
+      <div class="fact"><span class="fact__cat">Практика</span><span class="fact__val">Тренер с 2021 года</span></div>
+      <div class="fact"><span class="fact__cat">Работа</span><span class="fact__val">С 2023 года — Mriya Resort</span></div>
+      <div class="fact"><span class="fact__cat">Образование</span><span class="fact__val">КФУ им. В. И. Вернадского, магистратура «Спорт»</span></div>
+      <div class="fact"><span class="fact__cat">Квалификация</span><span class="fact__val">Курс «Инструктор тренажёрного зала. Персональный тренер»</span></div>
+    </div>
+    <p class="fs-exp__extra">Набор мышечной массы · снижение веса · изменение формы тела</p>
+  </div>
+</section>
+
+<!-- ===== HOW TO START ===== -->
+<section class="grid fs-how obs" id="how-to-start">
+  <div class="fs-how__head">
+    <span class="fs-label">Начало</span>
+    <h2 class="fs-h2">Как начинается<br>работа</h2>
+    <p class="fs-intro">Не нужно заранее знать подходящий формат. Начинаем с разговора и определяем ближайшие действия.</p>
+  </div>
+  <div class="fs-rhythm">
+    <svg preserveAspectRatio="none">
+      <path class="base"/>
+      <path class="pulse-tail pulse-tail--far"/>
+      <path class="pulse-tail pulse-tail--mid"/>
+      <path class="pulse-tail pulse-tail--near"/>
+      <circle class="pulse-head" r="2.2" cx="-10" cy="-10"/>
+    </svg>
+  </div>
+  <div class="fs-how__stages">
+    <div class="fs-stage"><b>Знакомство</b></div>
+    <div class="fs-stage"><b>Цель</b></div>
+    <div class="fs-stage"><b>Формат</b></div>
+    <div class="fs-stage"><b>План</b></div>
+    <div class="fs-stage"><b>Начало</b></div>
+  </div>
+  <div class="fs-how__cta"><a class="btn" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Обсудить свою цель</a></div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="grid faq obs" id="faq">
+  <div class="faq__left">
+    <div class="faq__eyebrow"><span>FAQ</span></div>
+    <h2><span>Вопросы</span><br><span>перед</span><br><span>началом</span></h2>
+    <span class="faq__cut"></span>
+    <p class="faq__note">Ответы на вопросы, которые обычно возникают перед началом тренировок.</p>
       <div class="faq__photo">
         <figure class="shot"><img class="faq__img" src="faq.webp" alt=""></figure>
       </div>
-    </div>
-
-    <div class="faq__right">
+  </div>
+  <div class="faq__right">
       <div class="faq__row is-open">
-        <button type="button" class="faq__q" aria-expanded="true" aria-controls="faq-a-1">
-          <p>Можно ли начать тренировки без опыта или после долгого перерыва?</p>
-          <span class="faq__plus" aria-hidden="true"></span>
+        <button type="button" class="faq__q" aria-expanded="true" aria-controls="sfaq-a-1">
+          <p>Можно ли начать без опыта?</p><span class="faq__plus" aria-hidden="true"></span>
         </button>
         <div class="faq__div" aria-hidden="true"></div>
-        <div class="faq__body" id="faq-a-1">
-          <div class="faq__body-in">
-            <p class="faq__a">Да. Не нужно заранее приводить себя в форму или пытаться подготовиться самостоятельно. Начнём с вашего текущего уровня и подберём нагрузку, с которой можно двигаться постепенно и без лишней спешки.</p>
-          </div>
-        </div>
+        <div class="faq__body" id="sfaq-a-1"><div class="faq__body-in"><p class="faq__a">Да. Начинаем с вашего текущего уровня и подбираем нагрузку, с которой можно двигаться постепенно.</p></div></div>
       </div>
       <div class="faq__row">
-        <button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a-2">
-          <p>Учитываются ли травмы и ограничения по здоровью?</p>
-          <span class="faq__plus" aria-hidden="true"></span>
+        <button type="button" class="faq__q" aria-expanded="false" aria-controls="sfaq-a-2">
+          <p>Как выбрать подходящий формат?</p><span class="faq__plus" aria-hidden="true"></span>
         </button>
         <div class="faq__div" aria-hidden="true"></div>
-        <div class="faq__body" id="faq-a-2">
-          <div class="faq__body-in">
-            <p class="faq__a">Во многих случаях — да, но всё зависит от характера ограничения. Перед началом важно рассказать о травмах и текущем самочувствии. Нагрузка или маршрут подбираются с учётом этой информации, а при боли, обострении или медицинских противопоказаниях сначала потребуется консультация врача.</p>
-          </div>
-        </div>
+        <div class="faq__body" id="sfaq-a-2"><div class="faq__body-in"><p class="faq__a">Не обязательно решать заранее. На первом разговоре обсудим цель и условия и вместе выберем формат.</p></div></div>
       </div>
       <div class="faq__row">
-        <button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a-3">
-          <p>Можно ли заниматься персонально, в группе или онлайн?</p>
-          <span class="faq__plus" aria-hidden="true"></span>
+        <button type="button" class="faq__q" aria-expanded="false" aria-controls="sfaq-a-3">
+          <p>Учитываются ли травмы и ограничения?</p><span class="faq__plus" aria-hidden="true"></span>
         </button>
         <div class="faq__div" aria-hidden="true"></div>
-        <div class="faq__body" id="faq-a-3">
-          <div class="faq__body-in">
-            <p class="faq__a">Да. Перед началом мы обсуждаем вашу цель и условия, после чего выбираем наиболее удобный формат работы.</p>
-          </div>
-        </div>
+        <div class="faq__body" id="sfaq-a-3"><div class="faq__body-in"><p class="faq__a">Да. Перед началом важно рассказать о травмах и самочувствии — нагрузка подбирается с учётом этой информации.</p></div></div>
       </div>
       <div class="faq__row">
-        <button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a-4">
-          <p>Можно ли получить план тренировок или питания без регулярных занятий?</p>
-          <span class="faq__plus" aria-hidden="true"></span>
+        <button type="button" class="faq__q" aria-expanded="false" aria-controls="sfaq-a-4">
+          <p>Как проходит онлайн-работа?</p><span class="faq__plus" aria-hidden="true"></span>
         </button>
         <div class="faq__div" aria-hidden="true"></div>
-        <div class="faq__body" id="faq-a-4">
-          <div class="faq__body-in">
-            <p class="faq__a">Да. Перед составлением мы обсуждаем вашу цель, режим, текущую подготовку и ограничения, чтобы план был реалистичным и его можно было соблюдать в обычной жизни.</p>
-          </div>
-        </div>
+        <div class="faq__body" id="sfaq-a-4"><div class="faq__body-in"><p class="faq__a">Дистанционно: программа под ваши условия, регулярная связь и разбор выполнения.</p></div></div>
       </div>
       <div class="faq__row">
-        <button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a-5">
-          <p>Можно ли пойти в поход без опыта?</p>
-          <span class="faq__plus" aria-hidden="true"></span>
+        <button type="button" class="faq__q" aria-expanded="false" aria-controls="sfaq-a-5">
+          <p>Можно ли получить только план тренировок?</p><span class="faq__plus" aria-hidden="true"></span>
         </button>
         <div class="faq__div" aria-hidden="true"></div>
-        <div class="faq__body" id="faq-a-5">
-          <div class="faq__body-in">
-            <p class="faq__a">Да. Для первого похода можно подобрать маршрут с подходящей нагрузкой и продолжительностью. Перед выходом мы обсудим вашу физическую форму и ограничения, а также заранее разберём подготовку, одежду и необходимое снаряжение.</p>
-          </div>
-        </div>
+        <div class="faq__body" id="sfaq-a-5"><div class="faq__body-in"><p class="faq__a">Да. После разговора вы получите программу под вашу цель для самостоятельной работы.</p></div></div>
       </div>
       <div class="faq__row">
-        <button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a-6">
-          <p>Что входит в сопровождение в походе?</p>
-          <span class="faq__plus" aria-hidden="true"></span>
+        <button type="button" class="faq__q" aria-expanded="false" aria-controls="sfaq-a-6">
+          <p>Входит ли питание в сопровождение?</p><span class="faq__plus" aria-hidden="true"></span>
         </button>
         <div class="faq__div" aria-hidden="true"></div>
-        <div class="faq__body" id="faq-a-6">
-          <div class="faq__body-in">
-            <p class="faq__a">До выхода мы обсуждаем маршрут, подготовку и необходимое снаряжение. Во время похода я веду по маршруту, слежу за темпом и состоянием участников и помогаю решать возникающие вопросы. Точный состав сопровождения зависит от выбранного маршрута.</p>
-          </div>
-        </div>
+        <div class="faq__body" id="sfaq-a-6"><div class="faq__body-in"><p class="faq__a">Питание можно подключить отдельно или как часть сопровождения — обсудим на первом разговоре.</p></div></div>
+      </div>
+      <div class="faq__row">
+        <button type="button" class="faq__q" aria-expanded="false" aria-controls="sfaq-a-7">
+          <p>Как отслеживается прогресс?</p><span class="faq__plus" aria-hidden="true"></span>
+        </button>
+        <div class="faq__div" aria-hidden="true"></div>
+        <div class="faq__body" id="sfaq-a-7"><div class="faq__body-in"><p class="faq__a">Через регулярную обратную связь: самочувствие, выполнение программы и промежуточные ориентиры.</p></div></div>
+      </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="fs-final obs">
+  <div class="fs-final__photo"><img src="directions-strength.webp" alt=""></div>
+  <div class="grid" style="width:100%">
+    <div class="fs-final__inner">
+      <h2>
+        <span class="fs-final__line"><span>Не обязательно заранее</span></span>
+        <span class="fs-final__line"><span>знать подходящий формат</span></span>
+      </h2>
+      <p>Расскажите, к чему хотите прийти. На первом разговоре определим, с чего лучше начать.</p>
+      <div class="fs-final__action">
+        <a class="btn" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Написать Никите</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== ПЕРВЫЙ ШАГ ===== -->
-  <section class="grid step obs" id="step">
-    <div class="step__left">
-      <div class="step__eyebrow"><span class="rule"></span><span>Первый шаг</span></div>
-      <h2 class="rv" id="stepH">Путь<br>начинается<br>с разговора</h2>
-      <p class="step__note rv" id="stepNote">В первом разговоре мы обсудим, что для вас важно, и определим подходящее направление и формат.</p>
-      <a class="step__cta rv" id="stepCta" href="https://t.me/CtereoC" target="_blank" rel="noopener noreferrer">
-        <svg class="step__cta-icon" viewBox="0 0 34 30" fill="none" aria-hidden="true">
-          <path d="M1 1H33V21H10L4 27V21H1V1Z" stroke="currentColor" stroke-width="1"/>
-          <path d="M9 11H11M16 11H18M23 11H25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>
-        <b>Написать Никите</b>
-        <svg class="arr" viewBox="0 0 44 8" fill="none" aria-hidden="true">
-          <path d="M0 4H41" stroke="currentColor" stroke-width="1"/>
-          <path d="M36 1L41.5 4L36 7" stroke="currentColor" stroke-width="1" fill="none"/>
-        </svg>
-      </a>
-      <div class="step__photo rv" id="stepPhoto">
-        <figure class="shot"><img src="step-hero.webp" alt="" class="step__img"></figure>
-      </div>
-    </div>
-
-    <div class="step__route">
-      <svg class="step__svg" id="stepSvg" aria-hidden="true"></svg>
-      <div class="step__stages">
-        <div class="step__stage">
-          <span class="step__dot step__dot--0"></span>
-          <span class="step__tick" style="left:22px;width:36px"></span>
-          <h3>Знакомство</h3>
-          <p>Обсуждаем вашу цель, текущую ситуацию и ожидания.</p>
-        </div>
-        <div class="step__stage">
-          <span class="step__dot step__dot--1"></span>
-          <span class="step__tick" style="left:60px;width:34px"></span>
-          <h3>Направление</h3>
-          <p>Выбираем направление и формат, которые подходят вашей цели и текущей ситуации.</p>
-        </div>
-        <div class="step__stage">
-          <span class="step__dot step__dot--2"></span>
-          <span class="step__tick" style="left:46px;width:38px"></span>
-          <h3>План</h3>
-          <p>Формируем понятную последовательность ближайших действий.</p>
-        </div>
-        <div class="step__stage">
-          <span class="step__dot step__dot--3"></span>
-          <span class="step__tick" style="left:68px;width:34px"></span>
-          <h3>Начало пути</h3>
-          <p>Начинаем работу в выбранном формате и двигаемся по плану.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
+<!-- ===== FOOTER ===== -->
   <footer class="foot obs" id="footer">
     <div class="foot__krym">Крым</div>
     <div class="foot__word" aria-label="MINATAVR"><span><svg class="foot__logo-word" viewBox="0 0 1084 212" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MINATAVR"><defs><linearGradient id="footWordGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4ef"/><stop offset=".38" stop-color="#E8E8E3"/><stop offset="1" stop-color="#5b6360"/></linearGradient></defs><path class="footer-logo__letter footer-logo__letter--m" style="--letter-index:0" fill="currentColor" d="M14.32 147.76H28.88V80.24H14.32V58H65.2L89.68 140.4L114.16 58H164.72V80.24H150.32V147.76H164.72V170H115.44V147.76H127.76V82.32H126.96L100.08 170H78.8L51.92 82.32H51.28V147.76H63.6V170H14.32V147.76Z"/>
@@ -1909,81 +3117,270 @@ body.menu-open{overflow:hidden}
     </div>
   </footer>
 
-</div>
-
 <script>
-[["nav",0],["h1",600],["htags",1000],["hsub",1400],["hcta",2100]].forEach(([id,t])=>
-  setTimeout(()=>document.getElementById(id).classList.add("in"),t));
 
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    const isTallMobileSection =
-      window.innerWidth<=900 &&
-      entry.target.offsetHeight > window.innerHeight*1.25;
-    const requiredRatio = isTallMobileSection ? 0.05 : 0.22;
-    if(entry.isIntersecting && entry.intersectionRatio>=requiredRatio){
-      entry.target.classList.add("in");
-      io.unobserve(entry.target);
-    }
-  });
-},{threshold:[0.05,0.22]});
-document.querySelectorAll(".obs").forEach(el=>io.observe(el));
 
-// Mobile menu: open/close, scroll lock, anchor close, Escape, auto-close >900px
+// HERO — staged reveal (mirrors главная: nav → label → H1 lines → text → tags → CTA)
+[["nav",0],["sLabel",500],["sLine1",750],["sLine2",950],["sThought1",1300],["sThought2",1500],["sTags",1750],["sCta",2100]]
+  .forEach(([id,t])=>setTimeout(()=>document.getElementById(id)?.classList.add("in"),t));
+
+const FS_FORMATS={
+  personal:{title:"Персональные тренировки",short:"Работа один на один с учётом вашей цели, подготовки и режима.",
+    who:"Тем, кому важны личный контроль, точная нагрузка и темп, который подстраивается под вас.",
+    incl:["Первичная встреча","Индивидуальная структура","Контроль процесса","Корректировка нагрузки"],
+    how:"Регулярные встречи один на один. Программа строится под вашу цель и корректируется по ходу работы.",
+    img:"directions-strength.webp"},
+  group:{title:"Тренировки в группе",short:"Общий ритм, движение и поддержка группы.",
+    who:"Тем, кому легче двигаться в общем ритме и важна атмосфера совместной работы.",
+    incl:["Вводная встреча","Общая структура занятий","Контроль техники","Адаптация нагрузки"],
+    how:"Занятия проходят в небольшой группе. Нагрузка масштабируется под уровень каждого участника.",
+    img:"stories-main.webp"},
+  online:{title:"Онлайн-сопровождение",short:"Система и контроль независимо от места.",
+    who:"Тем, кто тренируется самостоятельно, но хочет систему, обратную связь и контроль процесса.",
+    incl:["Стартовый созвон","Программа под условия","Обратная связь","Корректировка плана"],
+    how:"Работа строится дистанционно: программа, регулярная связь и разбор выполнения.",
+    img:"stories-side-01.webp"},
+  plan:{title:"План тренировок",short:"Самостоятельная работа по понятной программе.",
+    who:"Тем, кто готов заниматься сам и хочет получить понятную структуру под свою цель.",
+    incl:["Разбор цели и условий","Готовая структура","Пояснения к упражнениям","Разовая корректировка"],
+    how:"После разговора вы получаете программу под вашу задачу и условия, с пояснениями к выполнению.",
+    img:"step-hero.webp"},
+  food:{title:"Питание",short:"Структура питания под цель и обычный образ жизни.",
+    who:"Тем, кому нужна понятная структура питания без жёстких запретов и сложных схем.",
+    incl:["Разбор текущего рациона","Структура под цель","Ориентиры по продуктам","Разовая корректировка"],
+    how:"Формируем структуру питания, которую можно поддерживать в обычной жизни, без крайностей.",
+    img:"trust-nikita.webp"}
+};
+
+// reveal
+const fsIO=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add("in");fsIO.unobserve(e.target);}
+});},{threshold:.18});
+document.querySelectorAll(".obs").forEach(el=>fsIO.observe(el));
+
+// ---- formats overlay ----
 (function(){
-  const burger=document.getElementById("navBurger");
-  const menu=document.getElementById("mobileMenu");
-  if(!burger||!menu) return;
-  menu.removeAttribute("hidden");
-  menu.inert=true;
-  menu.setAttribute("aria-hidden","true");
-  function setOpen(open, restoreFocus=false){
-    menu.classList.toggle("is-open",open);
-    menu.inert=!open;
-    menu.setAttribute("aria-hidden",open?"false":"true");
-    burger.setAttribute("aria-expanded",open?"true":"false");
-    burger.setAttribute("aria-label",open?"Закрыть меню":"Открыть меню");
-    document.body.classList.toggle("menu-open",open);
+  const wrap=document.querySelector(".fs-mosaic-wrap");
+  const ov=document.getElementById("fsOverlay");
+  if(!wrap||!ov) return;
+  const bg=ov.querySelector(".fs-overlay__bg");
+  const title=ov.querySelector(".fs-overlay__title");
+  const short=ov.querySelector(".fs-overlay__short");
+  const who=ov.querySelector("#fsWho");
+  const incl=ov.querySelector("#fsIncl");
+  const how=ov.querySelector("#fsHow");
+  const closeBtn=ov.querySelector(".fs-overlay__close");
+  let opener=null;
+  function fill(key){
+    const d=FS_FORMATS[key]; if(!d) return;
+    bg.style.backgroundImage=`url("${d.img}")`;
+    title.textContent=d.title.toUpperCase();
+    short.textContent=d.short;
+    who.textContent=d.who;
+    incl.innerHTML=d.incl.map(x=>`<li>${x}</li>`).join("");
+    how.textContent=d.how;
+  }
+  let modalScrollY=0;
+  let savedBodyStyle="";
+  let savedHtmlScrollBehavior="";
+  function unlockPage(){
+    const html=document.documentElement;
+    html.style.scrollBehavior="auto";
+    if(savedBodyStyle){ document.body.setAttribute("style",savedBodyStyle); }
+    else { document.body.removeAttribute("style"); }
+    window.scrollTo({top:modalScrollY,left:0,behavior:"auto"});
+    document.documentElement.getBoundingClientRect();
+    requestAnimationFrame(()=>{ html.style.scrollBehavior=savedHtmlScrollBehavior; });
+  }
+  function setOpen(open){
     if(open){
-      requestAnimationFrame(()=>{ menu.querySelector("a")?.focus(); });
-    }else if(restoreFocus){
-      burger.focus({preventScroll:true});
+      modalScrollY=window.scrollY;
+      savedBodyStyle=document.body.getAttribute("style")||"";
+      savedHtmlScrollBehavior=document.documentElement.style.scrollBehavior;
+      document.body.style.position="fixed";
+      document.body.style.top=`-${modalScrollY}px`;
+      document.body.style.left="0";
+      document.body.style.right="0";
+      document.body.style.width="100%";
+    }
+    ov.classList.toggle("is-open",open);
+    ov.setAttribute("aria-hidden",open?"false":"true");
+    ov.setAttribute("aria-modal",open?"true":"false");
+    ov.inert=!open;
+    if(open){
+      requestAnimationFrame(()=>closeBtn.focus({preventScroll:true}));
+    }else{
+      unlockPage();
+      opener?.focus({preventScroll:true});
+      opener=null;
     }
   }
-  burger.addEventListener("click",()=>setOpen(!menu.classList.contains("is-open")));
-  menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setOpen(false)));
-  addEventListener("keydown",e=>{
-    if(e.key==="Escape" && menu.classList.contains("is-open")) setOpen(false,true);
+  ov.inert=true;
+  document.querySelectorAll(".fs-tile").forEach(t=>{
+    t.addEventListener("click",()=>{ opener=t; fill(t.dataset.format); setOpen(true); });
   });
-  const mq=matchMedia("(min-width:901px)");
-  const onMq=()=>{ if(mq.matches) setOpen(false); };
-  if(mq.addEventListener) mq.addEventListener("change",onMq); else mq.addListener(onMq);
+  closeBtn.addEventListener("click",e=>{ e.stopPropagation(); setOpen(false); });
+  ov.addEventListener("click",e=>{
+    if(!e.target.closest(".fs-overlay__inner")||e.target.classList.contains("fs-overlay__inner")) setOpen(false);
+  });
+  addEventListener("keydown",e=>{ if(e.key==="Escape"&&ov.classList.contains("is-open")) setOpen(false); });
 })();
 
-
-
-// STORIES — mobile native slider indicator
+// ---- approach vertical line ----
 (function(){
-  const track=document.querySelector(".stories__right");
-  const cards=[...document.querySelectorAll(".stories__right .story--side")];
-  const current=document.getElementById("storiesCurrent");
-  const progress=document.getElementById("storiesProgress");
-  if(!track||cards.length<2||!current||!progress) return;
-  let raf=0;
-  function update(){
-    raf=0;
-    const gap=parseFloat(getComputedStyle(track).columnGap)||parseFloat(getComputedStyle(track).gap)||0;
-    const step=cards[0].offsetWidth+gap;
-    const index=Math.max(0,Math.min(cards.length-1,Math.round(track.scrollLeft/Math.max(1,step))));
-    current.textContent=String(index+1);
-    progress.style.transform=`translateX(${index*100}%)`;
+  const sec=document.querySelector(".fs-approach");
+  const fill=document.querySelector(".fs-steps__fill");
+  const steps=[...document.querySelectorAll(".fs-step")];
+  const box=document.querySelector(".fs-steps");
+  if(!sec||!fill||!steps.length) return;
+  function upd(){
+    const r=box.getBoundingClientRect();
+    const vh=innerHeight;
+    const p=Math.min(1,Math.max(0,(vh*0.78-r.top)/(r.height)));
+    const h=(r.height-20)*p;
+    fill.style.height=h+"px";
+    steps.forEach(st=>{
+      const sr=st.getBoundingClientRect();
+      const cy=(sr.top+sr.bottom)/2 - r.top - 10;
+      st.classList.toggle("on",h>=cy);
+    });
   }
-  track.addEventListener("scroll",()=>{ if(!raf) raf=requestAnimationFrame(update); },{passive:true});
-  window.addEventListener("resize",update);
-  update();
+  addEventListener("scroll",()=>requestAnimationFrame(upd),{passive:true});
+  addEventListener("resize",upd);
+  upd();
 })();
 
-// FAQ accordion: one open at a time; independent from the .in reveal
+// ---- rhythm line ----
+(function(){
+  const sec=document.querySelector(".fs-how");
+  const holder=document.querySelector(".fs-rhythm");
+  if(!sec||!holder) return;
+  const svg=holder.querySelector("svg");
+  const base=svg.querySelector(".base");
+  const stages=[...document.querySelectorAll(".fs-stage")];
+  function build(){
+    const svgRect=svg.getBoundingClientRect();
+    const w=Math.round(svgRect.width), h=120, mid=h*0.60;
+    const xs=stages.map(stage=>{
+      const stageRect=stage.getBoundingClientRect();
+      return stageRect.left+stageRect.width/2-svgRect.left;
+    });
+    let d=`M0 ${mid}`;
+    xs.forEach(x=>{
+      // graphic cardiogram spike: small dip, sharp peak, deep drop, return
+      d+=` L${x-30} ${mid}`;
+      d+=` L${x-20} ${mid+7}`;
+      d+=` L${x-9} ${mid-34}`;
+      d+=` L${x+3} ${mid+22}`;
+      d+=` L${x+12} ${mid-6}`;
+      d+=` L${x+24} ${mid}`;
+    });
+    d+=` L${w} ${mid}`;
+    svg.setAttribute("viewBox",`0 0 ${w} ${h}`);
+    base.setAttribute("d",d);
+    return xs;
+  }
+  let xs=build();
+  const tailFar=svg.querySelector(".pulse-tail--far");
+  const tailMid=svg.querySelector(".pulse-tail--mid");
+  const tailNear=svg.querySelector(".pulse-tail--near");
+  const head=svg.querySelector(".pulse-head");
+  const TAIL_FAR=18, TAIL_MID=11, TAIL_NEAR=5;
+  function buildPathSegment(path,fromDistance,toDistance,samples=10){
+    const from=Math.max(0,fromDistance);
+    const to=Math.max(from,toDistance);
+    if(to-from<0.5){ path.setAttribute("d",""); return; }
+    let d="";
+    for(let i=0;i<=samples;i++){
+      const distance=from+(to-from)*(i/samples);
+      const point=base.getPointAtLength(distance);
+      d+=`${i===0?"M":"L"}${point.x} ${point.y} `;
+    }
+    path.setAttribute("d",d.trim());
+  }
+  let runnerFrame=0;
+  let runnerStart=0;
+  let drawFrame=0;
+  let drawAnimation=null;
+  const RUNNER_DURATION=6000;
+  const DRAW_DURATION=2600;
+  function getDistanceAtX(path,targetX){
+    const total=path.getTotalLength();
+    let low=0, high=total;
+    for(let i=0;i<28;i++){
+      const middle=(low+high)/2;
+      const point=path.getPointAtLength(middle);
+      if(point.x<targetX){ low=middle; } else { high=middle; }
+    }
+    return (low+high)/2;
+  }
+  function startRunner(){
+    cancelAnimationFrame(runnerFrame);
+    if(!holder.classList.contains("done")) return;
+    if(matchMedia("(prefers-reduced-motion: reduce)").matches){
+      tailFar.setAttribute("d","");tailMid.setAttribute("d","");tailNear.setAttribute("d","");
+      head.style.opacity="0"; return;
+    }
+    const len=base.getTotalLength();
+    if(!len) return;
+    runnerStart=performance.now();
+    function frame(now){
+      const progress=((now-runnerStart)%RUNNER_DURATION)/RUNNER_DURATION;
+      const distance=progress*len;
+      const point=base.getPointAtLength(distance);
+      buildPathSegment(tailFar, distance-TAIL_FAR, distance, 14);
+      buildPathSegment(tailMid, distance-TAIL_MID, distance, 10);
+      buildPathSegment(tailNear, distance-TAIL_NEAR, distance, 6);
+      head.setAttribute("cx",point.x);
+      head.setAttribute("cy",point.y);
+      runnerFrame=requestAnimationFrame(frame);
+    }
+    runnerFrame=requestAnimationFrame(frame);
+  }
+  addEventListener("resize",()=>{
+    cancelAnimationFrame(drawFrame);
+    cancelAnimationFrame(runnerFrame);
+    tailFar.setAttribute("d","");tailMid.setAttribute("d","");tailNear.setAttribute("d","");
+    xs=build();
+    if(holder.classList.contains("done")){
+      drawAnimation?.cancel();
+      base.style.transition="none";
+      base.style.strokeDasharray="none";
+      base.style.strokeDashoffset="0";
+      stages.forEach(st=>st.classList.add("on"));
+      startRunner();
+    }
+  });
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    io.unobserve(holder);
+    const len=base.getTotalLength();
+    const stageDistances=xs.map(x=>getDistanceAtX(base,x+3));
+    base.style.transition="none";
+    base.style.strokeDasharray=String(len);
+    base.style.strokeDashoffset=String(len);
+    base.getBoundingClientRect();
+    drawAnimation=base.animate(
+      [{strokeDashoffset:String(len)},{strokeDashoffset:"0"}],
+      {duration:DRAW_DURATION,easing:"linear",fill:"forwards"}
+    );
+    const drawStartedAt=performance.now();
+    function syncStages(now){
+      const progress=Math.min(1,(now-drawStartedAt)/DRAW_DURATION);
+      const currentDistance=progress*len;
+      stageDistances.forEach((distance,index)=>{
+        if(currentDistance>=distance){ stages[index].classList.add("on"); }
+      });
+      if(progress<1){ drawFrame=requestAnimationFrame(syncStages); return; }
+      holder.classList.add("done");
+      startRunner();
+    }
+    drawFrame=requestAnimationFrame(syncStages);
+  });},{threshold:.4});
+  io.observe(holder);
+})();
+
+// ---- FAQ accordion (same mechanics as главная) ----
 (function(){
   const rows=[...document.querySelectorAll(".faq__row")];
   if(!rows.length) return;
@@ -1991,208 +3388,55 @@ document.querySelectorAll(".obs").forEach(el=>io.observe(el));
     const btn=row.querySelector(".faq__q");
     btn.addEventListener("click",()=>{
       const isOpen=row.classList.contains("is-open");
-      rows.forEach(r=>{
-        r.classList.remove("is-open");
-        r.querySelector(".faq__q").setAttribute("aria-expanded","false");
-      });
-      if(!isOpen){
-        row.classList.add("is-open");
-        btn.setAttribute("aria-expanded","true");
-      }
+      rows.forEach(r=>{r.classList.remove("is-open");r.querySelector(".faq__q").setAttribute("aria-expanded","false");});
+      if(!isOpen){row.classList.add("is-open");btn.setAttribute("aria-expanded","true");}
     });
   });
 })();
 
-
-// FIRST STEP — path passes through the centre of every node; nodes are the corners
+// ---- tablet/mobile navigation ----
 (function(){
-  const sec=document.getElementById("step");
-  if(!sec) return;
-  const svg=document.getElementById("stepSvg");
-  const route=sec.querySelector(".step__route");
-  const stageEls=[...sec.querySelectorAll(".step__stage")];
-  const rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SVGNS="http://www.w3.org/2000/svg";
-
-  let routePath,nodes=[],rlen=0;
-
-  function build(){
-    svg.innerHTML="";nodes=[];
-    const rBox=route.getBoundingClientRect();
-    // node centre = vertical centre of each stage's title, x alternates as a calm zigzag
-    const vw=window.innerWidth;
-    let xs,tickStart,tickLength;
-    if(vw<=680){ xs=[10,30,20,34]; tickStart=8; tickLength=26; }
-    else if(vw<=932){ xs=[14,44,30,50]; tickStart=10; tickLength=30; }
-    else { xs=[16,54,40,62]; tickStart=10; tickLength=34; }
-    const pts=stageEls.map((el,i)=>{
-      const h3=el.querySelector("h3").getBoundingClientRect();
-      return {x:xs[i], y:(h3.top+h3.bottom)/2 - rBox.top};
-    });
-
-    // main route through the four nodes
-    routePath=document.createElementNS(SVGNS,"path");
-    routePath.setAttribute("class","route");
-    routePath.setAttribute("d","M"+pts.map(p=>p.x+" "+p.y).join(" L"));
-    svg.appendChild(routePath);
-
-    // ticks + nodes drawn on the path
-    pts.forEach((p,i)=>{
-      const tick=document.createElementNS(SVGNS,"line");
-      tick.setAttribute("class","tick");
-      tick.setAttribute("x1",p.x+tickStart);tick.setAttribute("y1",p.y);
-      tick.setAttribute("x2",p.x+tickStart+tickLength);tick.setAttribute("y2",p.y);
-      svg.appendChild(tick);
-      const c=document.createElementNS(SVGNS,"circle");
-      c.setAttribute("class","node");c.setAttribute("cx",p.x);c.setAttribute("cy",p.y);c.setAttribute("r",5);
-      svg.appendChild(c);
-      nodes.push({c,tick,y:p.y,len:0});
-    });
-
-    rlen=routePath.getTotalLength();
-    // exact path length up to each node corner
-    { let acc=0; for(let i=0;i<pts.length;i++){ if(i>0){acc+=Math.hypot(pts[i].x-pts[i-1].x,pts[i].y-pts[i-1].y);} nodes[i].len=acc; } }
-    routePath.style.setProperty("--len",rlen);
-    if(rm){
-      routePath.style.setProperty("--dash",0);
-      nodes.forEach(n=>{ n.c.classList.add("on"); n.tick.classList.add("on"); });
-    }else{
-      routePath.style.setProperty("--dash",rlen);
+  const burger=document.getElementById("navBurger");
+  const menu=document.getElementById("mobileMenu");
+  if(!burger||!menu) return;
+  function setMenu(open,restoreFocus=false){
+    burger.setAttribute("aria-expanded",open?"true":"false");
+    burger.setAttribute("aria-label",open?"Закрыть меню":"Открыть меню");
+    menu.classList.toggle("is-open",open);
+    menu.setAttribute("aria-hidden",open?"false":"true");
+    menu.inert=!open;
+    document.body.classList.toggle("menu-open",open);
+    if(open){
+      requestAnimationFrame(()=>{
+        menu.querySelector(".mobile-menu__link")?.focus({preventScroll:true});
+      });
+    }else if(restoreFocus){
+      burger.focus({preventScroll:true});
     }
   }
-
-  const cl=(v,a,b)=>Math.min(b,Math.max(a,v));
-  function draw(){
-    if(rm||!routePath) return;
-    const isMobileRoute=window.innerWidth<=932;
-    let drawn=0;
-    if(isMobileRoute){
-      // stage-linked: the line reaches each node when that node crosses the trigger line
-      const routeBox=route.getBoundingClientRect();
-      const isLandscape=window.matchMedia("(orientation: landscape) and (max-height: 500px)").matches;
-      const triggerY=window.innerHeight*(isLandscape?0.62:0.68);
-      const screenYs=nodes.map(node=>routeBox.top+node.y);
-      if(triggerY<=screenYs[0]){
-        drawn=0;
-      }else if(triggerY>=screenYs[screenYs.length-1]){
-        drawn=rlen;
-      }else{
-        for(let i=0;i<screenYs.length-1;i++){
-          const y1=screenYs[i], y2=screenYs[i+1];
-          if(triggerY>=y1 && triggerY<y2){
-            const local=cl((triggerY-y1)/Math.max(1,y2-y1),0,1);
-            drawn=nodes[i].len+(nodes[i+1].len-nodes[i].len)*local;
-            break;
-          }
-        }
-      }
-    }else{
-      const r=sec.getBoundingClientRect();
-      const vh=window.innerHeight;
-      const p=cl((vh*0.72-r.top)/(r.height*0.72),0,1);
-      drawn=rlen*p;
+  burger.addEventListener("click",()=>{
+    const open=burger.getAttribute("aria-expanded")!=="true";
+    setMenu(open);
+  });
+  menu.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click",()=>{ setMenu(false); });
+  });
+  window.addEventListener("keydown",event=>{
+    if(event.key==="Escape" && burger.getAttribute("aria-expanded")==="true"){
+      setMenu(false,true);
     }
-    routePath.style.setProperty("--dash",(rlen-drawn).toFixed(1));
-
-    // node + its tick switch on exactly when the drawn line reaches the corner
-    nodes.forEach(node=>{
-      const active=drawn>=node.len-2;
-      node.c.classList.toggle("on",active);
-      node.tick.classList.toggle("on",active);
-    });
+  });
+  function isCompactNavMode(){
+    return window.matchMedia(
+      "(max-width:900px), " +
+      "(orientation:landscape) and (max-width:932px) and (max-height:500px)"
+    ).matches;
   }
+  window.addEventListener("resize",()=>{
+    if(!isCompactNavMode()){ setMenu(false); }
+  });
+})();
 
-  build();
-  addEventListener("scroll",()=>requestAnimationFrame(draw),{passive:true});
-  addEventListener("resize",()=>{build();draw();});
-  // rebuild after fonts/layout settle
-  setTimeout(()=>{build();draw();},250);
-  if(document.fonts?.ready){
-    document.fonts.ready.then(()=>{ build(); draw(); });
-  }
-  draw();
-})();;
-
-// ORIGIN — MINA / TAVR
-const lockup=document.getElementById("lockup");
-const finalWord=document.getElementById("finalword");
-const minaPart=lockup.querySelector(".origin__part--mina");
-const tavrPart=lockup.querySelector(".origin__part--tavr");
-const philosophy=document.getElementById("philosophy");
-const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-const range=(v,a,b)=>clamp((v-a)/(b-a),0,1);
-const ease=t=>1-Math.pow(1-t,3);   // calm out-easing, cubic-bezier(.22,1,.36,1) character
-
-function originScene(){
-  if(reduced) return;
-
-  const vh=window.innerHeight;
-  lockup.style.setProperty("--push","0px");           // measure without the push
-  const lockRect=lockup.getBoundingClientRect();
-
-  // horizontal progress: driven purely by the lockup travelling up with the page
-  const stickyTop=parseFloat(getComputedStyle(lockup).top) || 132;
-  const from=vh*0.58, to=stickyTop;
-  const p=clamp((from-lockRect.top)/Math.max(1,(from-to)),0,1);
-
-  // mobile phases: assembly + text arrive earlier on small screens
-  const isMobileOrigin=window.innerWidth<=932;
-  const legendStart=isMobileOrigin?0.64:0.72;
-  const legendEnd  =isMobileOrigin?0.82:0.90;
-  const crossStart =isMobileOrigin?0.72:0.82;
-  const crossEnd   =isMobileOrigin?0.86:0.92;
-  const textStart  =isMobileOrigin?0.72:0.80;
-  const textEnd    =isMobileOrigin?0.94:1.00;
-  const pushStart  =isMobileOrigin?0.86:0.92;
-
-  // 1. barbell width IS the distance between MINA and TAVR
-  const t=ease(range(p,0,.88));
-  let full;
-  if(window.innerWidth<=932){
-    const availableWidth=lockup.clientWidth;
-    const minaWidth=minaPart.getBoundingClientRect().width;
-    const tavrWidth=tavrPart.getBoundingClientRect().width;
-    full=Math.max(0, availableWidth-minaWidth-tavrWidth);
-  }
-  else if(window.innerWidth<=1100){ full=Math.min(320, window.innerWidth*0.27); }
-  else { full=Math.min(510, window.innerWidth*0.30); }
-  lockup.style.setProperty("--barw",(full*(1-t)).toFixed(1)+"px");
-  const barFadeEnd=isMobileOrigin?0.80:0.90;
-  lockup.style.setProperty("--barop",(1-range(p,crossStart,barFadeEnd)).toFixed(3));
-
-  // 2. legends: fixed in place, only opacity
-  const legOp=1-range(p,legendStart,legendEnd);
-  document.querySelector(".origin__legends").style.setProperty("--legop",legOp.toFixed(3));
-
-  // 3. crossfade MINA/TAVR → one whole MINATAVR (identical type, even letter-spacing)
-  const cf=range(p,crossStart,crossEnd);
-  lockup.style.setProperty("--pairop",(1-cf).toFixed(3));
-  lockup.style.setProperty("--finop",cf.toFixed(3));
-
-  // 3b. philosophy fades in softly as the legends finish disappearing
-  // slower, softer reveal: gentle in and out, no hard switch-on
-  const tt=range(p,textStart,textEnd);
-  const textOp=tt*tt*(3-2*tt);          // starts as the legends reach ~0.25 opacity
-  philosophy.style.setProperty("--text-op",textOp.toFixed(3));
-  philosophy.style.setProperty("--text-y",(4*(1-textOp)).toFixed(1)+"px");
-
-  // 4. the philosophy physically pushes the assembled word up — only after assembly (UNCHANGED)
-  let push=0;
-  if(p>=pushStart){
-    const wordRect=finalWord.getBoundingClientRect();
-    const textRect=philosophy.getBoundingClientRect();
-    const visualGap=textRect.top-wordRect.bottom;
-    const overlap=Math.max(0,16-visualGap);
-    push=Math.min(overlap, vh*0.35);
-  }
-  lockup.style.setProperty("--push",(-push).toFixed(1)+"px");
-}
-if(!reduced){
-  addEventListener("scroll",()=>requestAnimationFrame(originScene),{passive:true});
-  addEventListener("resize",originScene);
-  originScene();
-}
 </script>
 </body>
 </html>
